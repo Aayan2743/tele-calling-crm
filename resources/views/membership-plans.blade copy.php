@@ -1,5 +1,5 @@
 <?php $page = 'membership-plans'; ?>
-@extends('layout.mainlayout1')
+@extends('layout.mainlayout')
 @section('content')
 		<!-- Page Wrapper -->
 		<div class="page-wrapper">
@@ -14,25 +14,53 @@
 								<div class="col-8">
 									<h4 class="page-title">Membership Plans</h4>
 								</div>
-								
+								<div class="col-4 text-end">
+									<div class="head-icons">
+										<a href="{{url('membership-plans')}}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Refresh"><i class="ti ti-refresh-dot"></i></a>
+										<a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Collapse" id="collapse-header"><i class="ti ti-chevrons-up"></i></a>
+									</div>
+								</div>
 							</div>
 						</div>
 						<!-- /Page Header -->
 
-					
+						<div class="card">
+							<div class="card-body">
+
+								<!-- Search -->
+								<div class="row gy-3">
+									<div class="col-md-5 col-sm-4">
+										<div class="icon-form">
+											<span class="form-icon"><i class="ti ti-search"></i></span>
+											<input type="text" class="form-control" placeholder="Search Membership">
+										</div>							
+									</div>		
+									<div class="col-md-7 col-sm-8">					
+										<div class="text-sm-end">
+											<a href="javascript:void(0);" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_add"><i class="ti ti-square-rounded-plus me-1"></i>Add Membership</a>
+										</div>
+									</div>
+								</div>
+								<!-- /Search -->							
+
+							</div>
+						</div>
 						<div class="d-block">
-							
+							<div class="d-flex align-items-center justify-content-center mb-4">
+								<h4 class="text-default">Monthly</h4>
+								<div class="status-toggle mx-3">
+									<input id="two_factor" class="check" type="checkbox">
+									<label for="two_factor" class="checktoggle">checkbox</label>
+								</div>
+								<h4 class="text-default">Annually</h4>
+							</div>
 							<div class="row justify-content-center">
-								@foreach ($plans as $plan)
 								<div class="col-lg-4 col-md-6">
 									<div class="card border">
 										<div class="card-body">
 											<div class="text-center border-bottom pb-3 mb-3">
 												<span>Basic</span>
-												<h2 class="d-flex align-items-end justify-content-center mt-1" >₹ {{  $plan->amount  }}<span class="fs-14 fw-medium ms-2">{{ $plan->days }}/ Days</span></h2>
-												<input type="text" id="plan_amount-{{ $plan->id}}" value="{{ $plan->amount }}"/>
-												<input type="text" id="plan_id-{{ $plan->id}}" value="{{ $plan->id }}"/>
-												
+												<h2 class="d-flex align-items-end justify-content-center mt-1">$50 <span class="fs-14 fw-medium ms-2">/ month</span></h2>
 											</div>
 											<div class="d-block">
 												<div>
@@ -70,67 +98,12 @@
 													</p>
 												</div>
 												<div class="text-center mt-3">
-												<button class="btn btn-primary choose-plan-btn" data-bs-toggle="modal" data-bs-target="#exampleModal" data-plan-id="{{ $plan->id }}">Choose</button>
-													<!-- <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="choosePlanBtn" >Choose</button> -->
+													<a href="#" class="btn btn-primary">Choose</a>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-								@endforeach
-
-								<!-- <div class="col-lg-4 col-md-6">
-									<div class="card border">
-										<div class="card-body">
-											<div class="text-center border-bottom pb-3 mb-3">
-												<span>Basic</span>
-												<h2 class="d-flex align-items-end justify-content-center mt-1" >$50 <span class="fs-14 fw-medium ms-2">/ month</span></h2>
-												<input type="text" id="plan_amount" value="50"/>
-											</div>
-											<div class="d-block">
-												<div>
-													<p class="d-flex align-items-center fs-16 fw-medium text-dark mb-2">
-														<span class="bg-success d-flex align-items-center justify-content-center fs-12 wh-14 me-1 rounded"><i class="ti ti-check"></i>
-														</span>10 Contacts
-													</p>
-													<p class="d-flex align-items-center fs-16 fw-medium text-dark mb-2">
-														<span class="bg-success d-flex align-items-center justify-content-center fs-12 wh-14 me-1 rounded"><i class="ti ti-check"></i>
-														</span>10 Leads
-													</p>
-													<p class="d-flex align-items-center fs-16 fw-medium text-dark mb-2">
-														<span class="bg-success d-flex align-items-center justify-content-center fs-12 wh-14 me-1 rounded"><i class="ti ti-check"></i>
-														</span>20 Companies
-													</p>
-													<p class="d-flex align-items-center fs-16 fw-medium text-dark mb-2">
-														<span class="bg-success d-flex align-items-center justify-content-center fs-12 wh-14 me-1 rounded"><i class="ti ti-check"></i>
-														</span>50 Compaigns
-													</p>
-													<p class="d-flex align-items-center fs-16 fw-medium text-dark mb-2">
-														<span class="bg-success d-flex align-items-center justify-content-center fs-12 wh-14 me-1 rounded"><i class="ti ti-check"></i>
-														</span>100 Projects
-													</p>
-													<p class="d-flex align-items-center fs-16 fw-medium text-dark mb-2">
-														<span class="bg-danger d-flex align-items-center justify-content-center fs-12 wh-14 me-1 rounded"><i class="ti ti-x"></i>
-														</span>Deals
-													</p>
-													<p class="d-flex align-items-center fs-16 fw-medium text-dark mb-2">
-														<span class="bg-danger d-flex align-items-center justify-content-center fs-12 wh-14 me-1 rounded"><i class="ti ti-x"></i>
-														</span>Tasks
-													</p>
-													<p class="d-flex align-items-center fs-16 fw-medium text-dark">
-														<span class="bg-danger d-flex align-items-center justify-content-center fs-12 wh-14 me-1 rounded"><i class="ti ti-x"></i>
-														</span>Pipelines
-													</p>
-												</div>
-												<div class="text-center mt-3">
-													
-													<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="choosePlanBtn" >Choose</button>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
 								<div class="col-lg-4 col-md-6">
 									<div class="card border">
 										<div class="card-body">
@@ -176,18 +149,12 @@
 													</p>
 												</div>
 												<div class="text-center mt-3">
-													<a href="{{ route('phonepe.pay') }}" class="btn btn-primary">Choose dddd</a>
+													<a href="#" class="btn btn-primary">Choose</a>
 												</div>
-
-												
-
-
 											</div>
 										</div>
 									</div>
 								</div>
-
-								
 								<div class="col-lg-4 col-md-6">
 									<div class="card border">
 										<div class="card-body">
@@ -238,11 +205,7 @@
 											</div>
 										</div>
 									</div>
-								</div> -->
-
-
-
-								
+								</div>
 							</div>
 						</div>				
 					</div>
@@ -251,65 +214,6 @@
 			</div>
 		</div>
 		<!-- /Page Wrapper -->
-
-<script>
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Get all buttons with the class 'choose-plan-btn'
-    const choosePlanButtons = document.querySelectorAll('.choose-plan-btn');
-
-    // Add event listener to each button
-    choosePlanButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            // Get the plan ID from the data-plan-id attribute
-            const planId = this.getAttribute('data-plan-id');
-            
-            // Get the corresponding plan amount input
-            const planAmountInput = document.getElementById(`plan_amount-${planId}`);
-            const planAmount = planAmountInput ? planAmountInput.value : '';
-
-            // Log for debugging
-            console.log(`Selected Plan ID: ${planId}, Amount: ${planAmount}`);
-
-            // Update the modal's amount1 input
-            const amount1Input = document.getElementById('amount1');
-            if (amount1Input && planAmount) {
-                amount1Input.value = planAmount;
-            } else {
-                console.error('Amount1 input not found or plan amount is empty');
-            }
-
-			const planIdInput = document.getElementById('plan_id');
-			if (planIdInput && planId) {
-				planIdInput.value = planId;
-			}
-        });
-    });
-});
-
-
-// document.getElementById('choosePlanBtn').addEventListener('click', function() {
-//     // Get the plan amount
-//     var planAmount = document.getElementById('plan_amount').value;
-// 	console.log("eeee"+ planAmount);
-//     // Update the modal with the plan amount
-//     document.getElementById('amount1').value = planAmount;
-// });
-
-</script>
-
 @component('components.model-popup')
-@component('components.models')
 @endcomponent
-<script src="{{ URL::asset('build/js/jquery-3.7.1.min.js') }}"></script>
-<script>
-$('a').on('click', function(e) {
-    e.preventDefault();  // Prevent default link behavior
-    var url = $(this).attr('href');
-    window.location.href = url;  // Manually redirect
-});
-
-
-
-</script>
 @endsection

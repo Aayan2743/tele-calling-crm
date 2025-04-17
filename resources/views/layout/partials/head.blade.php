@@ -1,5 +1,7 @@
  <!-- Apple Touch Icon -->
  <link rel="apple-touch-icon" sizes="180x180" href="{{ url('//img/apple-touch-icon.png') }}">
+ <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+ <meta name="csrf-token" content="{{ csrf_token() }}">
 
  
  <!-- Favicon -->

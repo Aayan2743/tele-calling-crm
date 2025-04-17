@@ -766,12 +766,7 @@
                             </a>
                         </div>
                     </li>
-                    <li class="dark-mode-list">
-                        <a href="javascript:void(0);" id="dark-mode-toggle" class="dark-mode-toggle">
-                            <i class="ti ti-sun light-mode active"></i>
-                            <i class="ti ti-moon dark-mode"></i>
-                        </a>
-                    </li>
+                   
                     <li class="nav-item dropdown">
                         <a href="javascript:void(0);" class="btn btn-header-list" data-bs-toggle="dropdown">
                             <i class="ti ti-layout-grid-add"></i>
@@ -919,23 +914,15 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a href="faq.html" class="btn btn-help">
-                            <i class="ti ti-help-hexagon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="lead-reports.html" class="btn btn-chart-pie">
-                            <i class="ti ti-chart-pie"></i>
-                        </a>
-                    </li>
+                  
+                    
                 </ul>
             </li>
             <!-- /Nav List -->
             
             <!-- Chat -->
             <li class="nav-item nav-item-email nav-item-box">
-                <a href="chat.html">
+                <a href="#">
                     <i class="ti ti-message-circle-exclamation"></i>
                     <span class="badge rounded-pill">14</span>
                 </a>
@@ -1026,15 +1013,24 @@
                 </a>
                 <div class="dropdown-menu menu-drop-user">
                     <div class="profilename">
+                    @auth  
                         <a class="dropdown-item" href="index.html">
                             <i class="ti ti-layout-2"></i> Dashboard
                         </a>
                         <a class="dropdown-item" href="profile.html">
                             <i class="ti ti-user-pin"></i> My Profile
                         </a>
-                        <a class="dropdown-item" href="login.html">
+                       
+                     
+                        <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="ti ti-lock"></i> Logout
                         </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    @endauth               
+
                     </div>
                 </div>
             </li>

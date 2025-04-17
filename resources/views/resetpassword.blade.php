@@ -5,7 +5,7 @@
     <div class="account-content">
         <div class="d-flex flex-wrap w-100 vh-100 overflow-hidden account-bg-03">
             <div class="d-flex align-items-center justify-content-center flex-wrap vh-100 overflow-auto p-4 w-50 bg-backdrop">
-                <form id="frmForgotpassword" class="flex-fill">
+                <form id="frmResetPassword" class="flex-fill">
                 @csrf
                     <div class="mx-auto mw-450">
                         <div class="text-center mb-4">
@@ -13,8 +13,8 @@
                         <img src="{{ URL::asset('/build/img/logo-telecalling.png')}}" class="img-fluid" alt="Logo">
                         </div>
                         <div class="mb-4">
-                            <h4 class="mb-2 fs-20">Forgot Password?</h4>
-                            <p>If you forgot your password, well, then we’ll email you instructions to reset your password.</p>
+                            <h4 class="mb-2 fs-20">Reset Password?</h4>
+                           
                         </div>
                         <div class="mb-3">
                             <label class="col-form-label">Email Address</label>
@@ -22,12 +22,27 @@
                                 <span class="input-icon-addon">
                                     <i class="ti ti-mail"></i>
                                 </span>
-                                <input type="email" value="" id="email" name="email" class="form-control">
+                                <input type="email" value="{{  $user->email  }}" id="email" readonly name="email" class="form-control">
                             </div>
                             <span id="text-danger-email" class="text-danger pt-2"></span>
                         </div>
+
+                       
                         <div class="mb-3">
-                            <button type="submit" class="btn btn-primary w-100" id="submit_button" disabled>Submit</button>
+                            <label class="col-form-label">New Password</label>
+                            <div class="pass-group">
+                                <input type="password" class="pass-input form-control" name="password" id="password" placeholder="Password  Required" >
+                                <span class="ti toggle-password ti-eye-off"></span>
+                            </div>
+                            <span id="text-danger-password" class="text-danger pt-2"></span>
+                        </div>  
+
+                       
+
+                      
+
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-primary w-100" id="submit_button" disabled>Update</button>
                         </div>
                         <div class="mb-3 text-center">
                             <h6>Return to <a href="{{route('loginindex')}}" class="text-purple link-hover"> Login</a></h6>
@@ -52,37 +67,34 @@
 
 
 
-            $('#email').focus();
+            $('#password').focus();
             $('#submit_button').prop('disabled', false);
-            $('#frmForgotpassword').submit(function(e){
+            $('#frmResetPassword').submit(function(e){
             e.preventDefault();
             
+            $('#text-danger-password').html("");
             let formData = new FormData(this);
                 
-            let email = $('#email').val().trim();
-            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-
-            $('#text-danger-email').html("");
+            let password = $('#password').val().trim();
           
 
+           
 
-            if(email==""){
-                $('#text-danger-email').html("Email field required");
-            }else if (!emailRegex.test(email)) {
-                    $('#text-danger-email').html("Please enter a valid email address");
+
+            if(password==""){
+                $('#text-danger-password').html("Password field required");
             }
 
            
            
             $.ajax({
-                url:'{{route("forgot.password.check")}}',
+                url:'{{route("forgot.updatePassword")}}',
                 type:"POST",
                 data:formData,
                 processData: false,
                 contentType: false, 
                 success: function(response) {
-                  
+                  console.log(response);
                      if(response.status==false){
                         Swal.fire({
                             icon: "error",
@@ -94,14 +106,16 @@
 
                      else if(response.status==true){
                         // window.location.href = '/dashboard';  
-                        // alert("senf email");
-
                         Swal.fire({
                             icon: "success",
-                            title: "Eamil...",
-                            text: "Email Sent....",
-                            // footer: '<a href="#">Why do I have this issue?</a>'
-                            });
+                            title: "Password Updated...",
+                            text: "Password updated successfully...",
+                            timer: 3000, // 3000ms = 3 seconds
+                            showConfirmButton: false,
+                            willClose: () => {
+                                window.location.href = '/';
+                            }
+                        });
 
 
                      }

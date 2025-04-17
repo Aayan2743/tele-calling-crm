@@ -41,4 +41,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function payment()
+        {
+            return $this->hasOne(Payment::class)->latestOfMany(); // if there can be multiple payments
+        }
+
+
 }

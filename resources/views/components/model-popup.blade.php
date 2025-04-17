@@ -1,4 +1,9 @@
 @if(Route::is(['activities']))
+
+    <!-- Add Payment pop -->
+
+    <!-- End payment pop up -->
+
     <!-- Add New Activity -->
     <div class="offcanvas offcanvas-end offcanvas-large" tabindex="-1" id="offcanvas_add">
         <div class="offcanvas-header border-bottom">
