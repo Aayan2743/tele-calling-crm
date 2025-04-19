@@ -1,4 +1,6 @@
  <!-- jQuery -->
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ @include('externals.routes');
  <script src="{{ URL::asset('build/js/jquery-3.7.1.min.js') }}"></script>
 
  <!-- Bootstrap Core JS -->
@@ -697,3 +699,5 @@
  <!-- Custom JS -->
  <script src="{{ URL::asset('build/js/theme-colorpicker.js') }}"></script>
  <script src="{{ URL::asset('build/js/script.js') }}"></script>
+   
+ <script src="{{ URL::asset('build/js/custom.js') }}"></script>

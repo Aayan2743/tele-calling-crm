@@ -692,7 +692,7 @@
 
             @auth
                 @include('layout.partials.header')
-                @include('layout.partials.sidebar1')
+                @include('layout.partials.sidebar')
             @endauth
            
         @endif

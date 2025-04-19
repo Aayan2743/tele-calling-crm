@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Razorpay\Api\Api;
 use App\Models\Payment;
 use App\Models\plan;
+use App\Models\user;
 use Illuminate\Support\Facades\Auth;
 class RozarpayController extends Controller
 {
@@ -151,11 +152,50 @@ class RozarpayController extends Controller
             'expire_date'    => $expire_date, // for example, 1-month plan
         ]);
 
-        return response()->json([
-            'status' => true,
-            'message' => 'Payment successful and saved.',
-        ]);
-    } else {
+        if($paymentdetails){
+            // dd($paymentdetails);
+            $companyId = Auth::user()->company_id;
+            
+          
+            if ($companyId) {
+
+                dd(" not null case");
+                $payment = $payment::where('user_id',Auth::id())->update([
+                    'company_id'=> $companyId,
+                ]);
+
+                return response()->json([
+                    'status' => true,
+                    'message' => 'Payment successful and saved.',
+                ]);
+               
+            } else {
+                
+                $uniqueCompanyID = strtolower(substr(md5(time() . uniqid(rand(), true)), 0, 12));
+                $payment = payment::where('user_id',Auth::id())->update([
+                    'company_id'=> $uniqueCompanyID,
+                ]);
+               
+                $user = user::find( Auth::id());
+               
+              
+                if ($user) {
+                    $user->company_id = $uniqueCompanyID;
+                    $user->save();
+                    return response()->json(['status'=>'true','message' => 'complete'], 200);
+                } else {
+                    // Handle case where user not found
+                    return response()->json(['message' => 'User not found'], 404);
+                }
+                // company_id is null
+            }
+
+           
+        }
+
+       
+    } 
+    else {
         // ❌ Signature mismatch
         return response()->json([
             'status' => false,

@@ -18,6 +18,7 @@ Route::get('register', [CustomAuthController::class, 'register'])->name('registe
 
 
 
+
 Route::middleware('guest')->group(function () {
     // Route::get('/', function () {
     //     return view('index');

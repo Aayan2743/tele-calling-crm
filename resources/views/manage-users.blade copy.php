@@ -1,5 +1,30 @@
 <?php $page = 'manage-users'; ?>
 @extends('layout.mainlayout')
+<style>
+
+.profile-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-avatar {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: #4caf50; /* You can choose any color */
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 50%;
+    text-transform: uppercase;
+}
+</style>
+
+
 @section('content')
 		<!-- Page Wrapper -->
 		<div class="page-wrapper">
@@ -12,7 +37,7 @@
 						<div class="page-header">
 							<div class="row align-items-center">
 								<div class="col-8">
-									<h4 class="page-title">User<span class="count-title">123</span></h4>
+									<h4 class="page-title">User<span class="count-title"></span></h4>
 								</div>
 								<div class="col-4 text-end">
 									<div class="head-icons">
@@ -56,411 +81,21 @@
 								<!-- /Search -->
 							</div>
 							<div class="card-body">
-								<!-- Filter -->
-								<div class="d-flex align-items-center justify-content-between flex-wrap row-gap-2 mb-4">
-									<div class="d-flex align-items-center flex-wrap row-gap-2">
-										<div class="dropdown me-2">
-											<a href="javascript:void(0);" class="dropdown-toggle"  data-bs-toggle="dropdown"><i class="ti ti-sort-ascending-2 me-2"></i>Sort </a>
-											<div class="dropdown-menu  dropdown-menu-start">
-												<ul>
-													<li>
-														<a href="javascript:void(0);" class="dropdown-item">
-															<i class="ti ti-circle-chevron-right me-1"></i>Ascending
-														</a>
-													</li>
-													<li>
-														<a href="javascript:void(0);" class="dropdown-item">
-															<i class="ti ti-circle-chevron-right me-1"></i>Descending
-														</a>
-													</li>
-													<li>
-														<a href="javascript:void(0);" class="dropdown-item">
-															<i class="ti ti-circle-chevron-right me-1"></i>Recently Viewed
-														</a>
-													</li>
-													<li>
-														<a href="javascript:void(0);" class="dropdown-item">
-															<i class="ti ti-circle-chevron-right me-1"></i>Recently Added
-														</a>
-													</li>
-												</ul>
-											</div>
-										</div>
-										<div class="icon-form">
-											<span class="form-icon"><i class="ti ti-calendar"></i></span>
-											<input type="text" class="form-control bookingrange" placeholder="">
-										</div>
-									</div>
-									<div class="d-flex align-items-center flex-wrap row-gap-2">
-										<div class="dropdown me-2">
-											<a href="javascript:void(0);" class="btn bg-soft-purple text-purple"  data-bs-toggle="dropdown"  data-bs-auto-close="outside"><i class="ti ti-columns-3 me-2"></i>Manage Columns</a>
-											<div class="dropdown-menu  dropdown-menu-md-end dropdown-md p-3">
-												<h4 class="mb-2 fw-semibold">Want to manage datatables?</h4>
-												<p class="mb-3">Please drag and drop your column to reorder your table and enable see option as you want.</p>
-												<div class="border-top pt-3">
-													<div class="d-flex align-items-center justify-content-between mb-3">
-														<p class="mb-0 d-flex align-items-center"><i class="ti ti-grip-vertical me-2"></i>Name</p>
-														<div class="status-toggle">
-															<input type="checkbox" id="col-name" class="check">
-															<label for="col-name" class="checktoggle"></label>
-														</div>
-													</div>
-													<div class="d-flex align-items-center justify-content-between mb-3">
-														<p class="mb-0 d-flex align-items-center"><i class="ti ti-grip-vertical me-2"></i>Phone</p>
-														<div class="status-toggle">
-															<input type="checkbox" id="col-phone" class="check">
-															<label for="col-phone" class="checktoggle"></label>
-														</div>
-													</div>
-													<div class="d-flex align-items-center justify-content-between mb-3">
-														<p class="mb-0 d-flex align-items-center"><i class="ti ti-grip-vertical me-2"></i>Email</p>
-														<div class="status-toggle">
-															<input type="checkbox" id="col-email" class="check">
-															<label for="col-email" class="checktoggle"></label>
-														</div>
-													</div>
-													<div class="d-flex align-items-center justify-content-between mb-3">
-														<p class="mb-0 d-flex align-items-center"><i class="ti ti-grip-vertical me-2"></i>Location</p>
-														<div class="status-toggle">
-															<input type="checkbox" id="col-tag" class="check">
-															<label for="col-tag" class="checktoggle"></label>
-														</div>
-													</div>
-													<div class="d-flex align-items-center justify-content-between mb-3">
-														<p class="mb-0 d-flex align-items-center"><i class="ti ti-grip-vertical me-2"></i>Created Date</p>
-														<div class="status-toggle">
-															<input type="checkbox" id="col-date" class="check">
-															<label for="col-date" class="checktoggle"></label>
-														</div>
-													</div>
-													<div class="d-flex align-items-center justify-content-between mb-3">
-														<p class="mb-0 d-flex align-items-center"><i class="ti ti-grip-vertical me-2"></i>Last Activity</p>
-														<div class="status-toggle">
-															<input type="checkbox" id="col-activity" class="check">
-															<label for="col-activity" class="checktoggle"></label>
-														</div>
-													</div>
-													<div class="d-flex align-items-center justify-content-between mb-3">
-														<p class="mb-0 d-flex align-items-center"><i class="ti ti-grip-vertical me-2"></i>Status</p>
-														<div class="status-toggle">
-															<input type="checkbox" id="col-status" class="check">
-															<label for="col-status" class="checktoggle"></label>
-														</div>
-													</div>
-													<div class="d-flex align-items-center justify-content-between mb-3">
-														<p class="mb-0 d-flex align-items-center"><i class="ti ti-grip-vertical me-2"></i>Action</p>
-														<div class="status-toggle">
-															<input type="checkbox" id="col-action" class="check">
-															<label for="col-action" class="checktoggle"></label>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="form-sorts dropdown">
-											<a href="javascript:void(0);" data-bs-toggle="dropdown"  data-bs-auto-close="outside"><i class="ti ti-filter-share"></i>Filter</a>
-											<div class="filter-dropdown-menu dropdown-menu  dropdown-menu-md-end p-3">
-												<div class="filter-set-view">
-													<div class="filter-set-head">
-														<h4><i class="ti ti-filter-share"></i>Filter</h4>
-													</div>
-													<div class="accordion" id="accordionExample">
-														<div class="filter-set-content">
-															<div class="filter-set-content-head">
-																<a href="#" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">Name</a>
-															</div>
-															<div class="filter-set-contents accordion-collapse collapse show" id="collapseTwo" data-bs-parent="#accordionExample">
-																<div class="filter-content-list">
-																	<div class="mb-2 icon-form">
-																		<span class="form-icon"><i class="ti ti-search"></i></span>
-																		<input type="text" class="form-control" placeholder="Search Name">
-																	</div>
-																	<ul>
-																		<li>
-																			<div class="filter-checks">
-																				<label class="checkboxs">
-																					<input type="checkbox" checked>
-																					<span class="checkmarks"></span>
-																					Darlee Robertson
-																				</label>
-																			</div>
-																		</li>
-																		<li>
-																			<div class="filter-checks">
-																				<label class="checkboxs">
-																					<input type="checkbox">
-																					<span class="checkmarks"></span>
-																					Sharon Roy
-																				</label>
-																			</div>
-																		</li>
-																		<li>
-																			<div class="filter-checks">
-																				<label class="checkboxs">
-																					<input type="checkbox">
-																					<span class="checkmarks"></span>
-																					Vaughan
-																				</label>
-																			</div>
-																		</li>
-																		<li>
-																			<div class="filter-checks">
-																				<label class="checkboxs">
-																					<input type="checkbox">
-																					<span class="checkmarks"></span>
-																					Jessica
-																				</label>
-																			</div>
-																		</li>
-																		<li>
-																			<div class="filter-checks">
-																				<label class="checkboxs">
-																					<input type="checkbox">
-																					<span class="checkmarks"></span>
-																					Carol Thomas
-																				</label>
-																			</div>
-																		</li>
-																	</ul>
-																</div>
-															</div>
-														</div>
-														<div class="filter-set-content">
-															<div class="filter-set-content-head">
-																<a href="#" class="collapsed" data-bs-toggle="collapse" data-bs-target="#phone" aria-expanded="false" aria-controls="phone">Phone</a>
-															</div>
-															<div class="filter-set-contents accordion-collapse collapse" data-bs-parent="#accordionExample">
-																<div class="filter-content-list">
-																	<ul>
-																		<li>
-																			<div class="filter-checks">
-																				<label class="checkboxs">
-																					<input type="checkbox" checked>
-																					<span class="checkmarks"></span>
-																					+1 875455453
-																				</label>
-																			</div>
-																		</li>
-																		<li>
-																			<div class="filter-checks">
-																				<label class="checkboxs">
-																					<input type="checkbox" checked>
-																					<span class="checkmarks"></span>
-																					+1 989757485
-																				</label>
-																			</div>
-																		</li>
-																		<li>
-																			<div class="filter-checks">
-																				<label class="checkboxs">
-																					<input type="checkbox">
-																					<span class="checkmarks"></span>
-																					+1 546555455
-																				</label>
-																			</div>
-																		</li>
-																	</ul>
-																</div>
-															</div>
-														</div>
-														<div class="filter-set-content">
-															<div class="filter-set-content-head">
-																<a href="#" class="collapsed" data-bs-toggle="collapse" data-bs-target="#email" aria-expanded="false" aria-controls="email">Email</a>
-															</div>
-															<div class="filter-set-contents accordion-collapse collapse" id="email" data-bs-parent="#accordionExample">
-																<div class="filter-content-list">
-																	<ul>
-																		<li>
-																			<div class="filter-checks">
-																				<label class="checkboxs">
-																					<input type="checkbox" checked>
-																					<span class="checkmarks"></span>
-																					robertson@example.com
-																				</label>
-																			</div>
-																		</li>
-																		<li>
-																			<div class="filter-checks">
-																				<label class="checkboxs">
-																					<input type="checkbox" checked>
-																					<span class="checkmarks"></span>
-																					sharon@example.com
-																				</label>
-																			</div>
-																		</li>
-																		<li>
-																			<div class="filter-checks">
-																				<label class="checkboxs">
-																					<input type="checkbox">
-																					<span class="checkmarks"></span>
-																					vaughan12@example.com
-																				</label>
-																			</div>
-																		</li>
-																	</ul>
-																</div>
-															</div>
-														</div>
-														<div class="filter-set-content">
-															<div class="filter-set-content-head">
-																<a href="#" class="collapsed" data-bs-toggle="collapse" data-bs-target="#location" aria-expanded="false" aria-controls="location">Location</a>
-															</div>
-															<div class="filter-set-contents accordion-collapse collapse" id="location" data-bs-parent="#accordionExample">
-																<div class="filter-content-list">
-																	<ul>
-																		<li>
-																			<div class="filter-checks">
-																				<label class="checkboxs">
-																					<input type="checkbox" checked>
-																					<span class="checkmarks"></span>
-																					Germany
-																				</label>
-																			</div>
-																		</li>
-																		<li>
-																			<div class="filter-checks">
-																				<label class="checkboxs">
-																					<input type="checkbox" checked>
-																					<span class="checkmarks"></span>
-																					USA
-																				</label>
-																			</div>
-																		</li>
-																		<li>
-																			<div class="filter-checks">
-																				<label class="checkboxs">
-																					<input type="checkbox">
-																					<span class="checkmarks"></span>
-																					Canada
-																				</label>
-																			</div>
-																		</li>
-																	</ul>
-																</div>
-															</div>
-														</div>
-														<div class="filter-set-content">
-															<div class="filter-set-content-head">
-																<a href="#" class="collapsed" data-bs-toggle="collapse" data-bs-target="#owner" aria-expanded="false" aria-controls="owner">Created Date</a>
-															</div>
-															<div class="filter-set-contents accordion-collapse collapse" id="owner" data-bs-parent="#accordionExample">
-																<div class="filter-content-list">
-																	<ul>
-																		<li>
-																			<div class="filter-checks">
-																				<label class="checkboxs">
-																					<input type="checkbox" checked>
-																					<span class="checkmarks"></span>
-																					25 Sep 2023, 12:12 pm
-																				</label>
-																			</div>
-																		</li>
-																		<li>
-																			<div class="filter-checks">
-																				<label class="checkboxs">
-																					<input type="checkbox" checked>
-																					<span class="checkmarks"></span>
-																					27 Sep 2023, 07:40 am
-																				</label>
-																			</div>
-																		</li>
-																		<li>
-																			<div class="filter-checks">
-																				<label class="checkboxs">
-																					<input type="checkbox">
-																					<span class="checkmarks"></span>
-																					29 Sep 2023, 08:20 am
-																				</label>
-																			</div>
-																		</li>
-																		<li>
-																			<div class="filter-checks">
-																				<label class="checkboxs">
-																					<input type="checkbox">
-																					<span class="checkmarks"></span>
-																					02 Oct 2023, 10:10 am
-																				</label>
-																			</div>
-																		</li>
-																		<li>
-																			<div class="filter-checks">
-																				<label class="checkboxs">
-																					<input type="checkbox">
-																					<span class="checkmarks"></span>
-																					17 Oct 2023, 04:25 pm
-																				</label>
-																			</div>
-																		</li>
-																	</ul>
-																</div>
-															</div>
-														</div>
-														<div class="filter-set-content">
-															<div class="filter-set-content-head">
-																<a href="#" class="collapsed" data-bs-toggle="collapse" data-bs-target="#Status" aria-expanded="false" aria-controls="Status">Status</a>
-															</div>
-															<div class="filter-set-contents accordion-collapse collapse" id="Status" data-bs-parent="#accordionExample">
-																<div class="filter-content-list">
-																	<ul>
-																		<li>
-																			<div class="filter-checks">
-																				<label class="checkboxs">
-																					<input type="checkbox" checked>
-																					<span class="checkmarks"></span>
-																					Active
-																				</label>
-																			</div>
-																		</li>
-																		<li>
-																			<div class="filter-checks">
-																				<label class="checkboxs">
-																					<input type="checkbox" checked>
-																					<span class="checkmarks"></span>
-																					Inactive
-																				</label>
-																			</div>
-																		</li>
-																	</ul>
-																</div>
-															</div>
-														</div>
-													</div>													
-													<div class="filter-reset-btns">
-														<div class="row">
-															<div class="col-6">
-																<a href="#" class="btn btn-light">Reset</a>
-															</div>
-															<div class="col-6">
-																<a href="{{url('manage-users')}}" class="btn btn-primary">Filter</a>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									
-									</div>
-								</div>
-								<!-- /Filter -->
+								
 
 								<!-- Manage Users List -->
 								<div class="table-responsive custom-table">
 									<table class="table" id="manage-users-list">
 										<thead class="thead-light">
 											<tr>
-												<th class="no-sort">
-													<label class="checkboxs">
-														<input type="checkbox" id="select-all"><span class="checkmarks"></span>
-													</label>
-												</th>
-												<th class="no-sort"></th>
+												<th>S No</th>
 												<th>Name</th>
-												<th>Phone</th>
+											
 												<th>Email</th>
-												<th>Location</th>
+												<th>Phone</th>
 												<th>Created</th>
-												<th>Last Activity</th>
 												<th>Status</th>
+												<th>Pic</th>
 												<th class="text-end">Action</th>
 											</tr>
 										</thead>
@@ -488,6 +123,350 @@
 			</div>
 		</div>
 		<!-- /Page Wrapper -->
-@component('components.model-popup')
-@endcomponent
+<!-- @component('components.model-popup')
+@endcomponent -->
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="{{ URL::asset('build/js/jquery-3.7.1.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+
+
+
+
+<div class="offcanvas offcanvas-end offcanvas-large" tabindex="-1" id="offcanvas_add">
+    <div class="offcanvas-header border-bottom">
+        <h5 class="fw-semibold">Add New User</h5>
+        <button type="button" class="btn-close custom-btn-close border p-1 me-0 d-flex align-items-center justify-content-center rounded-circle" data-bs-dismiss="offcanvas" aria-label="Close">
+            <i class="ti ti-x"></i>
+        </button>
+    </div>
+    <div class="offcanvas-body">
+        <form id="addUser">	
+			@csrf						
+            <div>
+                <!-- Basic Info -->
+                <div>
+                    <div class="row">
+					<div class="col-md-12">
+								<div class="profile-pic-upload">
+									<div class="profile-pic">
+										<span><i class="ti ti-photo"></i></span>
+										<!-- Image preview area -->
+										<img id="previewImage" src="#" alt="Image Preview" style="display: none; width: 120px; height: 120px; object-fit: cover; border-radius: 8px; margin-top: 10px;" />
+									</div>
+									<div class="upload-content">
+										<div class="upload-btn">
+											<input type="file" id="file" name="file" accept="image/*">
+											<span>
+												<i class="ti ti-file-broken"></i>Upload File
+											</span>
+										</div>
+										<p>JPG, GIF or PNG. Max size of 800K</p>
+									</div>
+								</div>
+							</div>
+
+
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="col-form-label"> Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+								<span id="text-danger-name" class="text-danger pt-2"></span>
+                            </div>
+                        </div>
+                       									
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <label class="col-form-label">Email <span class="text-danger">*</span></label>
+                                  
+                                </div>
+                                <input type="text" id="email" name="email" required  class="form-control">
+								<span id="text-danger-email" class="text-danger pt-2"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+						<div class="mb-3">
+								<label class="col-form-label">Role <span class="text-danger">*</span></label>
+								<select class="form-control" name="role" id="role" required >
+									<option value="">Select Role</option>
+									<option value="Admin">Admin</option>
+									<option value="Staff">Staff</option>
+									
+									<!-- Add more roles as needed -->
+								</select>
+								<span id="text-danger-role" class="text-danger pt-2"></span>
+							</div>
+
+                        </div>
+                       
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="col-form-label">Phone <span class="text-danger">*</span> </label>
+							
+
+
+                                <input type="number" id="phone" name="phone" required  class="form-control">
+								<span id="text-danger-phone" class="text-danger pt-2"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="col-form-label">Password <span class="text-danger">*</span></label>
+                                <div class="icon-form-end">
+                                    <span class="form-icon"><i class="ti ti-eye-off"></i></span>
+                                    <input type="password" id="password" name="password"  required class="form-control">
+									<span id="text-danger-password" class="text-danger pt-2"></span>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        
+                        <div class="col-md-6">
+                            <div class="radio-wrap">
+                                <label class="col-form-label">Status</label>
+                                <div class="d-flex align-items-center">
+                                    <div class="me-2">
+                                        <input type="radio" class="status-radio" id="active1" name="status" value="1" checked="">
+                                        <label for="active1">Active</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" class="status-radio" id="inactive1" name="status" value="0">
+                                        <label for="inactive1">Inactive</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Basic Info -->
+            </div>
+            <div class="d-flex align-items-center justify-content-end">
+                <a href="#" class="btn btn-light me-2" data-bs-dismiss="offcanvas">Cancel</a>
+                <button type="submit" id="addUserDetails" class="btn btn-primary">Create</button>
+            </div>
+        </form>
+    </div>
+    
+
+</div>
+
+
+
+
+
+<script>
+$(document).ready(function () {
+
+
+
+    let table =  $('#manage-users-list2').DataTable({
+	
+		
+        processing: true,
+        serverSide: true,
+        ajax: '{{ route("user.index") }}', // Must match the route!
+        columns: [
+            { data: 'DT_RowIndex', name: 'DT_RowIndex' },
+            { data: 'name', name: 'name' },
+            { data: 'email', name: 'email' },
+            { data: 'phone', name: 'phone' },
+            { data: 'created_at', name: 'created_at' },
+            { data: 'active_status', name: 'active_status',
+				render: function(data, type, row) {
+					if (data == 1) {
+						return '<span class="badge bg-success">Active</span>';
+					} else {
+						return '<span class="badge bg-danger">Inactive</span>';
+					}
+				}
+			},
+			{ data: 'profile_image', name: 'profile_image',
+				render: function(data, type, row) {
+                // Assuming the image is stored in a directory like 'storage/profile_images/'
+				// return data ? '<img src="{{ asset('storage') }}/' + data + '" alt="Profile Image" style="width: 50px; height: 50px; object-fit: cover;">' : 'No image';
+				if (data) {
+                    // If image exists, show the image
+                    return '<img src="{{ asset('storage') }}/' + data + '" alt="Profile Image" class="profile-img">';
+                } else {
+                    // If no image, show the first letter of the name
+                    // var firstLetter = row.name.charAt(0).toUpperCase();
+                    // return '<div class="profile-avatar">' + firstLetter + '</div>';
+
+					function getRandomColor() {
+						const colors = ['#FF5733', '#33FF57', '#3357FF', '#FF33A1']; // Add more colors as needed
+						const randomIndex = Math.floor(Math.random() * colors.length);
+						return colors[randomIndex];
+					}
+
+					// Inside your DataTable rendering function
+					var firstLetter = row.name.charAt(0).toUpperCase();
+					var randomColor = getRandomColor();
+					return '<div class="profile-avatar" style="background-color: ' + randomColor + ';">' + firstLetter + '</div>';
+				}		
+			
+			},
+			},
+				
+			{
+					"render": function (data, type, row) {
+						return '<div class="dropdown table-action">' +
+							'<a href="#" class="action-icon" data-bs-toggle="dropdown" aria-expanded="false">' +
+								'<i class="fa fa-ellipsis-v"></i>' +
+							'</a>' +
+							'<div class="dropdown-menu dropdown-menu-right">' +
+								'<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#offcanvasExample">' +
+									'<i class="ti ti-edit text-blue"></i> Edit' +
+								'</a>' +
+								'<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_faq">' +
+									'<i class="ti ti-trash text-danger"></i> Delete' +
+								'</a>' +
+							'</div>' +
+						'</div>';
+					}
+				}
+
+
+        ]
+    });
+
+
+	$('#addUser').submit(function(e){
+		
+			e.preventDefault();
+
+			let email = $('#email').val().trim();
+            let password=$('#password').val().trim();
+            let phone=$('#phone').val().trim();
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			let phoneRegex = /^[0-9]{10}$/;
+		
+
+
+            $('#text-danger-email').html("");
+            $('#text-danger-password').html("");
+            $('#text-danger-phone').html("");
+            $('#text-danger-password').html("");
+
+			if (!emailRegex.test(email)) {
+                    $('#text-danger-email').html("Please enter a valid email address");
+            }
+
+			if (!phoneRegex.test(phone)) {
+				$('#text-danger-phone').text('Please enter a valid 10-digit phone number.');
+            }
+			if (password.length < 6) {
+                $('#text-danger-password').text('Password must be at least 6 characters long.');
+            }
+
+
+			let formData = new FormData(this);
+
+			$.ajax({
+                url:'{{route("user.store")}}',
+                type:"POST",
+                data:formData,
+                processData: false,
+                contentType: false, 
+                success: function(response) {
+                    console.log('Success:', response.status);
+                     if(response.status==false){
+                        Swal.fire({
+                            icon: "error",
+                            title: "Registration Error...",
+                            text: "Some thing went wrong please try again later....",
+                            // footer: '<a href="#">Why do I have this issue?</a>'
+                            });
+                     }   
+
+                     else if(response.status==true){
+                        // window.location.href = '/dashboard';  
+						Swal.fire({
+						icon: "success",
+						title: "Staff Details...",
+						text: "Staff Added Successfully.",
+						timer: 3000, // Show alert for 3 seconds (3000 milliseconds)
+						showConfirmButton: false,
+						willClose: () => {
+							$('#addUser')[0].reset(); // Reset form fields
+							$('#file').attr('src', ''); // If you're showing image preview
+							$('#offcanvas_add').offcanvas('hide');
+							table.ajax.reload(null, false);
+							
+							// location.reload(); // Reload page after the alert closes
+						}
+					});
+
+						
+                     }
+
+                     // Handle success (show message, reset form, etc.)
+                    },
+                    error: function(xhr) {
+
+
+                        if (xhr.status === 422) {
+                            $.each(xhr.responseJSON.errors, function(field, messages) {
+                                // Append the first error message for each field
+                                $('#text-danger-' + field).html(messages[0]);
+                            });
+                        } else {
+                            // Handle other errors (if any)
+                            console.log('Error:', xhr);
+                          }
+
+                       
+                        // Handle error (show error messages)
+                    }
+
+
+            });
+		
+
+
+			
+
+	});
+
+
+
+
+
+
+});
+</script>
+
+
+<script>
+document.getElementById('file').addEventListener('change', function (event) {
+    const preview = document.getElementById('previewImage');
+    const file = event.target.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            preview.src = e.target.result;
+            preview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+    } else {
+        preview.src = '#';
+        preview.style.display = 'none';
+    }
+});
+</script>
+
 @endsection

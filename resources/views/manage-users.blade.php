@@ -56,21 +56,32 @@
 								<!-- /Search -->
 							</div>
 							<div class="card-body">
-								
+								<!-- Filter -->
+								<div class="d-flex align-items-center justify-content-between flex-wrap row-gap-2 mb-4">
+									<div class="d-flex align-items-center flex-wrap row-gap-2">
+									
+									</div>
+									<div class="d-flex align-items-center flex-wrap row-gap-2">
+										
+									</div>
+								</div>
+								<!-- /Filter -->
 
 								<!-- Manage Users List -->
 								<div class="table-responsive custom-table">
-									<table class="table" id="manage-users-list1">
+									<table class="table" id="manage-users-list">
 										<thead class="thead-light">
 											<tr>
-												<th>S No</th>
+												
+											<th>ID</th>
 												<th>Name</th>
-											
-												<th>Email</th>
 												<th>Phone</th>
-												<th>Created</th>
+												<th>Email</th>
+												
 												<th>Status</th>
-												<th class="text-end">Action</th>
+												<th>Role</th>
+												<th class="text-end">Action</th>	
+
 											</tr>
 										</thead>
 										<tbody>
@@ -99,24 +110,4 @@
 		<!-- /Page Wrapper -->
 @component('components.model-popup')
 @endcomponent
-
-<script src="{{ URL::asset('build/js/jquery-3.7.1.min.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    $(function () {
-        $('#manage-users-list1').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: "{{ route('user.index') }}",
-            columns: [
-                { data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false },
-                { data: 'name', name: 'name' },
-                { data: 'phone', name: 'phone' },
-                { data: 'email', name: 'email' },
-                { data: 'created_at', name: 'created_at' },
-            ]
-        });
-    });
-    </script>
-
 @endsection

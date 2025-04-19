@@ -22685,21 +22685,19 @@
         </button>
     </div>
     <div class="offcanvas-body">
-        <form id="AddStaffFrm" enctype="multipart/form-data">		
-            @csrf					
+        <form action="manage-users">							
             <div>
                 <!-- Basic Info -->
                 <div>
                     <div class="row">
-                    <div class="col-md-12">
+                        <div class="col-md-12">
                             <div class="profile-pic-upload">
                                 <div class="profile-pic">
-                                    <img id="previewImage" src="#" alt="Image Preview" style="display:none; width: 100px; height: 100px; object-fit: cover; border-radius: 8px;" />
                                     <span><i class="ti ti-photo"></i></span>
                                 </div>
                                 <div class="upload-content">
                                     <div class="upload-btn">
-                                        <input type="file" id="file" name="file" accept="image/*">
+                                        <input type="file">
                                         <span>
                                             <i class="ti ti-file-broken"></i>Upload File
                                         </span>
@@ -22711,63 +22709,87 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label class="col-form-label"> Name <span class="text-danger">*</span></label>
-                                <input type="text" id="name"  name="name" class="form-control">
-                                <span id="text-danger-name" class="text-danger pt-2"></span>
+                                <input type="text" class="form-control">
                             </div>
                         </div>
-                        									
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="col-form-label">User Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>										
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <label class="col-form-label">Email <span class="text-danger">*</span></label>
-                                   
+                                    <div class="status-toggle small-toggle-btn d-flex align-items-center">
+                                        <span class="me-2 label-text">Email Opt Out</span>
+                                        <input type="checkbox" id="user1" class="check" checked="">
+                                        <label for="user1" class="checktoggle"></label>
+                                    </div>
                                 </div>
-                                <input type="email" name="email" id="email" required class="form-control">
-                                <span id="text-danger-email" class="text-danger pt-2"></span>
+                                <input type="text" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label class="col-form-label">Role <span class="text-danger">*</span></label>
-                                <select class="form-control" name="role" id="role" name="role">
-                                <option value="" disabled selected>Select Role</option>
-                                <option value="Admin">Admin</option>
-                                <option value="Staff">Staff</option>
-                              
-                            </select>
-
-                                <span id="text-danger-role" class="text-danger pt-2"></span>
+                                <input type="text" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label class="col-form-label">Phone  <span class="text-danger">*</span></label>
-                                <input type="number" id="phone" name="phone" required class="form-control">
-                                <span id="text-danger-phone" class="text-danger pt-2"></span>
+                                <label class="col-form-label">Phone 1 <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control">
                             </div>
                         </div>
-                       
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="col-form-label">Phone 2</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label class="col-form-label">Password <span class="text-danger">*</span></label>
                                 <div class="icon-form-end">
                                     <span class="form-icon"><i class="ti ti-eye-off"></i></span>
-                                    <input type="password" id="password" required name="password" class="form-control">
-                                    <span id="text-danger-password" class="text-danger pt-2"></span>
+                                    <input type="password" class="form-control">
                                 </div>
                             </div>
                         </div>
-                       
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="col-form-label">Repeat Password <span class="text-danger">*</span></label>
+                                <div class="icon-form-end">
+                                    <span class="form-icon"><i class="ti ti-eye-off"></i></span>
+                                    <input type="password" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="col-form-label">Location <span class="text-danger">*</span></label>
+                                <select class="select">
+                                    <option>Choose</option>
+                                    <option>Germany</option>
+                                    <option>USA</option>
+                                    <option>Canada</option>
+                                    <option>India</option>
+                                    <option>China</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="col-md-6">
                             <div class="radio-wrap">
                                 <label class="col-form-label">Status</label>
                                 <div class="d-flex align-items-center">
                                     <div class="me-2">
-                                        <input type="radio" class="status-radio" id="active1" value="1" name="status" checked="">
+                                        <input type="radio" class="status-radio" id="active1" name="status" checked="">
                                         <label for="active1">Active</label>
                                     </div>
                                     <div>
-                                        <input type="radio" class="status-radio" id="inactive1"  value="0"  name="status">
+                                        <input type="radio" class="status-radio" id="inactive1" name="status">
                                         <label for="inactive1">Inactive</label>
                                     </div>
                                 </div>
@@ -22796,99 +22818,116 @@
         </button>
     </div>
     <div class="offcanvas-body">
-        <form id="EditStaffFrm" enctype="multipart/form-data">	
-            @csrf						
+        <form action="manage-users">							
             <div>
                 <!-- Basic Info -->
                 <div>
                     <div class="row">
-                    <div class="col-md-12">
-                    <div class="profile-pic-upload">
-                        <div class="profile-pic">
-                            <!-- Preview image -->
-                            <img id="edit-preview-image" src="/assets/images/avatar.png" alt="Profile" class="rounded-circle" width="80" height="80" style="object-fit: cover;">
-                            <span><i class="ti ti-photo"></i></span>
-                        </div>
-                        <div class="upload-content">
-                            <div class="upload-btn">
-                                <input type="file" id="edit-profile-image-input" name="edit-profile-image-input" accept="image/*">
-                                <span>
-                                    <i class="ti ti-file-broken"></i>Upload File
-                                </span>
+                        <div class="col-md-12">
+                            <div class="profile-pic-upload">
+                                <div class="profile-pic">
+                                    <span><i class="ti ti-photo"></i></span>
+                                </div>
+                                <div class="upload-content">
+                                    <div class="upload-btn">
+                                        <input type="file">
+                                        <span>
+                                            <i class="ti ti-file-broken"></i>Upload File
+                                        </span>
+                                    </div>
+                                    <p>JPG, GIF or PNG. Max size of 800K</p>
+                                </div>
                             </div>
-                            <p>JPG, GIF or PNG. Max size of 800K</p>
                         </div>
-                    </div>
-                </div>
-           
-
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label class="col-form-label"> Name <span class="text-danger">*</span></label>
-                                <input type="hidden" class="form-control" id='edit-id' name="edit-id" >
-                                <input type="text" class="form-control" id='edit-name' name="edit-name" >
-                                <span id="text-danger-edit-name" class="text-danger pt-2"></span>
+                                <input type="text" class="form-control" value="Darlee Robertson">
                             </div>
                         </div>
-                       										
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="col-form-label">User Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" value="Darlee Robertson">
+                            </div>
+                        </div>										
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <label class="col-form-label">Email <span class="text-danger">*</span></label>
-                                  
+                                    <div class="status-toggle small-toggle-btn d-flex align-items-center">
+                                        <span class="me-2 label-text">Email Opt Out</span>
+                                        <input type="checkbox" id="user1" class="check" checked="">
+                                        <label for="user1" class="checktoggle"></label>
+                                    </div>
                                 </div>
-                                <input type="text" class="form-control" id='edit-email' name="edit-email">
-                                <span id="text-danger-edit-email" class="text-danger pt-2"></span>
+                                <input type="text" class="form-control" value="robertson@example.com">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label class="col-form-label">Role <span class="text-danger">*</span></label>
-                                <select class="form-control" name="role" id='edit-role' name="edit-role">
-                                <option value="" disabled selected>Select Role</option>
-                                <option value="Admin">Admin</option>
-                                <option value="Staff">Staff</option>
-                              
-                            </select>
-
-                                <span id="text-danger-role" class="text-danger pt-2"></span>
+                                <input type="text" class="form-control" value="Facility Manager">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label class="col-form-label">Phone  <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id='edit-phone' name="edit-phone">
-                                <span id="text-danger-edit-phone" class="text-danger pt-2"></span>
+                                <label class="col-form-label">Phone 1 <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" value="	+1 989757485">
                             </div>
                         </div>
-                      
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="col-form-label">Phone 2</label>
+                                <input type="text" class="form-control" value="	+1 989757485">
+                            </div>
+                        </div>
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label class="col-form-label">Password <span class="text-danger">*</span></label>
                                 <div class="icon-form-end">
                                     <span class="form-icon"><i class="ti ti-eye-off"></i></span>
-                                    <input type="password" class="form-control" id='edit-password' name="edit-password">
-                                    <span id="text-danger-edit-password" class="text-danger pt-2"></span>
+                                    <input type="password" class="form-control" value="****">
                                 </div>
                             </div>
                         </div>
-                        
-                       
                         <div class="col-md-6">
-                        <div class="radio-wrap">
-                            <label class="col-form-label">Status</label>
-                            <div class="d-flex align-items-center">
-                                <div class="me-2">
-                                    <input type="radio" class="status-radio" id="edit-active1" value="1" name="edit-status">
-                                    <label for="edit-active1">Active</label>
-                                </div>
-                                <div>
-                                    <input type="radio" class="status-radio" id="edit-inactive1" value="0" name="edit-status">
-                                    <label for="edit-inactive1">Inactive</label>
+                            <div class="mb-3">
+                                <label class="col-form-label">Repeat Password <span class="text-danger">*</span></label>
+                                <div class="icon-form-end">
+                                    <span class="form-icon"><i class="ti ti-eye-off"></i></span>
+                                    <input type="password" class="form-control" value="****">
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="col-form-label">Location <span class="text-danger">*</span></label>
+                                <select class="select">
+                                    <option>Choose</option>
+                                    <option selected>Germany</option>
+                                    <option>USA</option>
+                                    <option>Canada</option>
+                                    <option>India</option>
+                                    <option>China</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="radio-wrap">
+                                <label class="col-form-label">Status</label>
+                                <div class="d-flex align-items-center">
+                                    <div class="me-2">
+                                        <input type="radio" class="status-radio" id="active1" name="status" checked="">
+                                        <label for="active1">Active</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" class="status-radio" id="inactive1" name="status">
+                                        <label for="inactive1">Inactive</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- /Basic Info -->
@@ -22916,7 +22955,7 @@
                     <p class="mb-0">Are you sure you want to remove it</p>
                     <div class="d-flex align-items-center justify-content-center mt-4">
                         <a href="#" class="btn btn-light me-2" data-bs-dismiss="modal">Cancel</a>
-                        <a href="{{route('deleteUsers')}}" class="btn btn-danger">Yes, Delete it</a>
+                        <a href="{{url('manage-users')}}" class="btn btn-danger">Yes, Delete it</a>
                     </div>
                 </div>
             </div>

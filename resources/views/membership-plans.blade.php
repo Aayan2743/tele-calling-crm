@@ -30,8 +30,8 @@
 											<div class="text-center border-bottom pb-3 mb-3">
 												<span>Basic</span>
 												<h2 class="d-flex align-items-end justify-content-center mt-1" >₹ {{  $plan->amount  }}<span class="fs-14 fw-medium ms-2">{{ $plan->days }}/ Days</span></h2>
-												<input type="text" id="plan_amount-{{ $plan->id}}" value="{{ $plan->amount }}"/>
-												<input type="text" id="plan_id-{{ $plan->id}}" value="{{ $plan->id }}"/>
+												<input type="hidden" id="plan_amount-{{ $plan->id}}" value="{{ $plan->amount }}"/>
+												<input type="hidden" id="plan_id-{{ $plan->id}}" value="{{ $plan->id }}"/>
 												
 											</div>
 											<div class="d-block">
@@ -279,37 +279,29 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error('Amount1 input not found or plan amount is empty');
             }
 
+
+			const amountLabel = document.getElementById('amount2');
+			if (amountLabel && planAmount) {
+				amountLabel.textContent = `Amount (in INR): ₹${planAmount}`;
+			} else {
+				console.error('Amount2 label not found or plan amount is empty');
+			}
+
 			const planIdInput = document.getElementById('plan_id');
 			if (planIdInput && planId) {
 				planIdInput.value = planId;
 			}
         });
-    });
-});
+   		 });
+	});
 
 
-// document.getElementById('choosePlanBtn').addEventListener('click', function() {
-//     // Get the plan amount
-//     var planAmount = document.getElementById('plan_amount').value;
-// 	console.log("eeee"+ planAmount);
-//     // Update the modal with the plan amount
-//     document.getElementById('amount1').value = planAmount;
-// });
 
 </script>
 
 @component('components.model-popup')
 @component('components.models')
 @endcomponent
-<script src="{{ URL::asset('build/js/jquery-3.7.1.min.js') }}"></script>
-<script>
-$('a').on('click', function(e) {
-    e.preventDefault();  // Prevent default link behavior
-    var url = $(this).attr('href');
-    window.location.href = url;  // Manually redirect
-});
 
 
-
-</script>
 @endsection

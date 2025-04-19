@@ -176,7 +176,7 @@
                         } else {
                             // Handle other errors (if any)
                             console.log('Error:', xhr);
-            }
+                          }
 
                        
                         // Handle error (show error messages)
