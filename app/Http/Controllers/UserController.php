@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Models\User;
 use App\Models\plan;
+use App\Models\phonenumber;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\ResetPasswordMail;
@@ -16,6 +17,9 @@ use Carbon\Carbon;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
+use App\Imports\PhoneImport;
+use App\Imports\PhoneAutoImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
@@ -26,19 +30,125 @@ class UserController extends Controller
 
     }
 
+    public function user_list(){   
+        $user_company_id = Auth::user()->company_id;
+        
+        $user_list=User::where('company_id',$user_company_id)->get();
+
+        if($user_list->isEmpty()){
+            return response()->json(['status'=>false,'message'=> 'No Staff Available']);
+        }else{
+            return response()->json(['status'=>true,'message'=> 'Staff Available','data'=>$user_list]); 
+        }
+
+    }
+
+    public function user_stats(){
+        
+       
+        $staffList = User::where('role', 'staff')->where('active_status','!=','2') // adjust this if needed
+    ->withCount([
+        'phoneNumbers as total_count',
+        'phoneNumbers as called_count' => function ($query) {
+            $query->where('called_status', 'called');
+        },
+        'phoneNumbers as pending_count' => function ($query) {
+            $query->where('called_status', 'pending');
+        },
+        'phoneNumbers as lead_count' => function ($query) {
+            $query->where('lead_stage', 1);
+        },
+        'phoneNumbers as deal_count' => function ($query) {
+            $query->where('lead_stage', 2);
+        }
+    ])
+    ->get();
+
+        $data = $staffList->map(function ($staff) {
+            return [
+                'id' => $staff->id,
+                'name' => $staff->name,
+                'email' => $staff->email,
+                'phone' => $staff->phone,
+                'profile_image' => $staff->profile_image 
+                    ? asset('storage/'.$staff->profile_image) 
+                    : asset('storage/default-image.jpg'),
+                'total_count' => $staff->total_count,
+                'called_count' => $staff->called_count,
+                'pending_count' => $staff->pending_count,
+                'lead_count' => $staff->lead_count,
+                'deal_count' => $staff->deal_count,
+            ];
+        });
+
+       
+        return response()->json($data);
+    }
+
+
+    public function add_phone_number(Request $request){
+
+        // dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'name'=> 'required',
+            'users'=> 'required',
+            // 'phone'=> 'required|digits:10',
+            'number' => [
+                'required',
+                'digits:10',
+                Rule::unique('phonenumbers')->where(function ($query) {
+                    return $query->where('company_id', auth()->user()->company_id);
+                }),
+            ],
+           
+        ]);
+
+        if ($validator->fails()){
+            return response()->json([
+             'status'=>false,
+             'errors'=> $validator->errors(),
+            ],422);
+         }
+
+        
+         $user_company_id = Auth::user()->company_id;
+         
+ 
+         $user = phonenumber::create([
+             'number'=> $request->number,
+             'staff_id'=> $request->users,
+             'name'=> $request->name,
+             'active_status'=> $request->status,
+             'company_id'=> $user_company_id,
+            
+         ]);
+
+         if($user){
+          
+            return response()->json([
+                'status'=>true,
+                'message'=>'Phone Number Assigned Successfully...!'
+            ]);
+        }else{
+            return response()->json([
+                'status'=>false,
+                'message'=>'Some thing went wrong...!'
+            ]);
+        }
+    }
+
 
     public function getUsers(Request $request)
         {
-            // $users = User::select([
-            //     'id', 'name', 'email', 'phone', 'created_at', 'active_status', 'profile_image'
-            // ])->get();
+           
 
            $company_id=Auth::user()->company_id;
-        //    dd($company_id);
-            // return response()->json(['data' => $users]);
+     
 
 
-            $users =  User::orderBy('id', direction: 'desc')->where('company_id',$company_id)->get()->map(function($user) {
+            $users =  User::orderBy('id', direction: 'desc')->where('company_id',$company_id)
+            ->where('active_status','!=','2')
+            ->get()->map(function($user) {
                 return [
                     'id' => $user->id,
                     'customer_name' => $user->name,
@@ -229,8 +339,61 @@ class UserController extends Controller
     
         }
 
-     public function delete(){
-        dd("fjgdfkg");
+     public function delete(Request $request){
+
+        $deleteUser=user::where('id',$request->delete_id)->update(['active_status'=>'2']);
+      
+        if($deleteUser){
+            return response()->json([
+                'status' => true,
+                'message' => 'User Deleted successfully!',
+               
+            ]);
+        }else{
+            return response()->json([
+                'status' => false,
+                'message' => 'User Not Deleted',
+               
+            ]);
+        }
+
+    //    dd($request->all());
      }   
+
+
+     public function bulk_upload(Request $request){
+
+        // dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'staff_id'=> 'required',
+          
+        ]);
+
+
+        $import = new PhoneImport($request->staff_id);
+        Excel::import($import, $request->file('uploadFile'));
+
+        return response()->json([
+            'message' => 'Upload completed',
+            'inserted' => $import->successCount,
+            'duplicates' => $import->duplicateCount,
+        ]);
+     }
+
+
+     public function bulk_auto_upload(Request $request){
+
+
+        $import = new PhoneAutoImport();
+        Excel::import($import, $request->file('uploadFile'));
+
+        $results = $import->getResults();
+
+         return response()->json([
+                'message' => 'Upload complete.',
+                'success_count' => $results['success'],
+                'duplicate_count' => $results['duplicate'],
+            ]);
+     }
 
 }

@@ -282,12 +282,23 @@
                         <li><a class="{{ Request::is('manage-users') ? 'active' : '' }}"
                                 href="{{ url('manage-users') }}"><i class="ti ti-users"></i><span>Manage
                                     Users</span></a></li>
-                        <li><a class="{{ Request::is('roles-permissions','permission') ? 'active' : '' }}"
-                                href="{{ url('roles-permissions') }}"><i class="ti ti-navigation-cog"></i><span>Roles
-                                    & Permissions</span></a></li>
-                        <li><a class="{{ Request::is('delete-request') ? 'active' : '' }}"
+                      
+                        <!-- <li><a class="{{ Request::is('delete-request') ? 'active' : '' }}"
                                 href="{{ url('delete-request') }}"><i class="ti ti-flag-question"></i><span>Delete
-                                    Request</span></a></li>
+                                    Request</span></a></li> -->
+                    </ul>
+                </li>
+
+                <li>
+                    <h6 class="submenu-hdr">Upload Numbers</h6>
+                    <ul>
+                        <li><a class="{{ Request::is('upload-contacts') ? 'active' : '' }}"
+                                href="{{route('upload-numbers')}}"><i class="ti ti-users"></i><span>Upload
+                                    Numbers</span></a></li>
+                      
+                        <!-- <li><a class="{{ Request::is('delete-request') ? 'active' : '' }}"
+                                href="{{ url('delete-request') }}"><i class="ti ti-flag-question"></i><span>Delete
+                                    Request</span></a></li> -->
                     </ul>
                 </li>
                 <li>

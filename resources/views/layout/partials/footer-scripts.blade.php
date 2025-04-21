@@ -1,5 +1,7 @@
  <!-- jQuery -->
  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
  @include('externals.routes');
  <script src="{{ URL::asset('build/js/jquery-3.7.1.min.js') }}"></script>
 
@@ -57,6 +59,11 @@
 <script src="{{ URL::asset('build/plugins/pickr/pickr.js') }}"></script>
 <script src="{{ URL::asset('build/plugins/@simonwep/pickr/pickr.min.js') }}"></script>
 <script src="{{ URL::asset('build/js/forms-pickers.js') }}"></script>
+@endif
+
+@if (Route::is(['upload-numbers']))
+  
+    <script src="{{ URL::asset('build/js/upload_numbers.js') }}"></script>
 @endif
 
 @if (Route::is(['maps-vector']))

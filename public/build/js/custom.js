@@ -15,6 +15,11 @@ $(document).ready(function(){
 		}
 	});
 
+	$('#manage-users-list_filter').hide();
+
+	$('#customSearch').on('keyup', function () {
+		$('#manage-users-list').DataTable().search(this.value).draw();
+	});
 
 	
 	$('#edit-profile-image-input').on('change', function(e) {
@@ -199,6 +204,15 @@ $(document).ready(function(){
 	
 	});
 
+	$(document).on('click', '.delete-user-btn', function() {
+		// Fetch data from data attributes
+		let id = $(this).data('id');
+		//delete-id
+		$('#delete-id').val(id); 
+
+	
+	});
+
 	$('#EditStaffFrm').submit(function(e){
 		e.preventDefault();
 	
@@ -326,6 +340,83 @@ $(document).ready(function(){
 
 	})
 
+	$('#deleteUserForm').submit(function(e){
+		e.preventDefault();
+	
+		let formData = new FormData(this);
+		
+		$.ajax({
+			url:deleteUsers,
+			type:"POST",
+			data:formData,
+			processData: false,
+			contentType: false, 
+			success: function(response) {
+				console.log('Success:', response.status);
+				 if(response.status==false){
+					Swal.fire({
+						icon: "error",
+						title: "Error...",
+						text: "Something went wrong....",
+						// footer: '<a href="#">Why do I have this issue?</a>'
+						});
+				 }   
 
+				 else if(response.status==true){
+
+					Swal.fire({
+						icon: "success",
+						title: "Deleted...",
+						text: "Staff Deleted...",
+						timer: 2000,
+						timerProgressBar: true,
+						showConfirmButton: false,
+						didClose: () => {
+							// Reload DataTable without resetting pagination
+							$('#manage-users-list').DataTable().ajax.reload(null, false);
+					
+							
+							const modalEl = document.getElementById('delete_contact');
+							const modalInstance = bootstrap.Modal.getInstance(modalEl); // Get existing instance
+							modalInstance.hide();
+					
+						
+						}
+					});
+					
+
+					// window.location.href = '/dashboard';  
+				 }
+
+				 // Handle success (show message, reset form, etc.)
+				},
+				error: function(xhr) {
+
+
+					if (xhr.status === 422) {
+						$.each(xhr.responseJSON.errors, function(field, messages) {
+							// Append the first error message for each field
+							$('#text-danger-' + field).html(messages[0]);
+						});
+					} else {
+						// Handle other errors (if any)
+						console.log('Error:', xhr);
+		}
+
+				   
+					// Handle error (show error messages)
+				}
+
+
+		});
+		
+
+		
+
+	})
+
+	
+
+	
 	
 });

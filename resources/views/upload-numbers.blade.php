@@ -31,25 +31,21 @@
 									<div class="col-sm-4">
 										<div class="icon-form mb-3 mb-sm-0">
 											<span class="form-icon"><i class="ti ti-search"></i></span>
-											<input type="text" class="form-control" id="customSearch" placeholder="Search User">
+											<input type="text" class="form-control" id="customSearch1" placeholder="Search User">
 										</div>							
 									</div>		
 									<div class="col-sm-8">					
 										<div class="d-flex align-items-center flex-wrap row-gap-2 justify-content-sm-end">
-											<div class="dropdown me-2">
-												<a href="javascript:void(0);" class="dropdown-toggle"   data-bs-toggle="dropdown"><i class="ti ti-package-export me-2"></i>Export</a>
-												<div class="dropdown-menu  dropdown-menu-end">
-													<ul>
-														<li>
-															<a href="javascript:void(0);" id="exportPDFButton" class="dropdown-item"><i class="ti ti-file-type-pdf text-danger me-1"></i>Export as PDF</a>
-														</li>
-														<li>
-															<a href="javascript:void(0);" id="exportButton" class="dropdown-item"><i class="ti ti-file-type-xls text-green me-1"></i>Export as Excel </a>
-														</li>
-													</ul>
-												</div>
-											</div>	
-											<a href="javascript:void(0);" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_add"><i class="ti ti-square-rounded-plus me-2"></i>Add user</a>
+										
+											<a href="javascript:void(0);" id="get_users_list" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_add"><i class="ti ti-square-rounded-plus me-2"></i>Add Contacts</a>
+											<a href="javascript:void(0);" class="btn btn-primary mx-2" id="uploadTrigger">
+													<i class="ti ti-square-rounded-plus me-2"></i>Bulk Upload
+												</a>
+												<a href="javascript:void(0);" class="btn btn-primary mx-2" id="autouploadTrigger">
+													<i class="ti ti-square-rounded-plus me-2"></i>Auto Upload
+												</a>		
+
+					
 										</div>
 									</div>
 								</div>
@@ -69,18 +65,20 @@
 
 								<!-- Manage Users List -->
 								<div class="table-responsive custom-table">
-									<table class="table" id="manage-users-list">
+									<table class="table" id="phone-users-list">
 										<thead class="thead-light">
 											<tr>
 												
 											<th>ID</th>
 												<th>Name</th>
-												<th>Phone</th>
+												<th>phone</th>
 												<th>Email</th>
-												
-												<th>Status</th>
-												<th>Role</th>
-												<th class="text-end">Action</th>	
+												<th>Total Calls</th>
+												<th>Pending Calls</th>
+												<th>Complete Calls</th>
+												<th>Lead Count</th>
+												<th>Deal Count</th>
+												<!-- <th class="text-end">Action</th>	 -->
 
 											</tr>
 										</thead>

@@ -81,13 +81,21 @@ Route::middleware( ['auth','unsubscribed'])->group(function () {
     Route::get('/users', [UserController::class, 'getUsers'])->name('users.index');
     Route::post('/add-users', [UserController::class, 'store'])->name('user.store');
     Route::post('/update-users', [UserController::class, 'update'])->name('user.update');
-    Route::post('/delete-users', [UserController::class, 'delete'])->name('user.delete');
+    Route::post('/delete-users', [UserController::class, 'delete'])->name('deleteUsers');
     
     Route::get('/manage-users', function () {
         return view('manage-users');
     })->name('manage-users');
-   
 
+    Route::get('/upload-numbers', function () {
+        return view('upload-numbers');
+    })->name('upload-numbers');
+    
+Route::get('/user_list', [UserController::class, 'user_list'])->name('user.list');
+Route::post('/add_phone_number', [UserController::class, 'add_phone_number'])->name('add.phone.number');
+Route::post('/bulk_upload', [UserController::class, 'bulk_upload'])->name('bulk_upload');
+Route::post('/bulk_auto_upload', [UserController::class, 'bulk_auto_upload'])->name('bulk_auto_upload');
+Route::get('/users_statistics', [UserController::class, 'user_stats'])->name('user_stats');
    
 });
 

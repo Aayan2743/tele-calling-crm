@@ -4934,212 +4934,15 @@ $(document).ready(function () {
 
 	// Manage Users List
 
-	// if($('#manage-users-list').length > 0) {
-	// 	$('#manage-users-list').DataTable({
-	// 		"bFilter": false, 
-	// 			"bInfo": false,
-	// 				"ordering": true,
-	// 			"autoWidth": true,
-	// 			"language": {
-	// 				search: ' ',
-	// 				sLengthMenu: '_MENU_',
-	// 				searchPlaceholder: "Search",
-	// 				info: "_START_ - _END_ of _TOTAL_ items",
-	// 				"lengthMenu":     "Show _MENU_ entries",
-	// 				paginate: {
-	// 					next: 'Next <i class=" fa fa-angle-right"></i> ',
-	// 					previous: '<i class="fa fa-angle-left"></i> Prev '
-	// 				},
-	// 				},
-	// 			initComplete: (settings, json)=>{
-	// 				$('.dataTables_paginate').appendTo('.datatable-paginate');
-	// 				$('.dataTables_length').appendTo('.datatable-length');
-	// 			},  
-	// 			"data":[
-	// 				{
-	// 					"id" : 1,
-	// 					"si_no" : "",
-	// 					"select" : "",
-	// 					"customer_name" : "Darlee Robertson",
-	// 					"customer_image" : "build/img/profiles/avatar-19.jpg",
-	// 					"customer_no" : "Facility Manager",
-	// 					"phone" : "1234567890",
-	// 					"email" : "robertson@example.com",
-	// 					"location" : "Germany",
-	// 					"created" : "25 Sep 2023, 12:12 pm",
-	// 					"last_activity": "2 mins ago",
-	// 					"status" : "0",
-	// 					"Action" : ""
-	// 				},
-	// 				{
-	// 					"id" : 2,
-	// 					"si_no" : "",
-	// 					"select" : "",
-	// 					"customer_name" : "Sharon Roy",
-	// 					"customer_image" : "build/img/profiles/avatar-20.jpg",
-	// 					"customer_no" : "Installer",
-	// 					"phone" : "+1 989757485",
-	// 					"email" : "sharon@example.com",
-	// 					"location" : "USA",
-	// 					"created" : "27 Sep 2023, 07:40 am",
-	// 					"last_activity": "5 mins ago",
-	// 					"status" : "1",
-	// 					"Action" : ""
-	// 				},
-	// 				{
-	// 					"id" : 3,
-	// 					"si_no" : "",
-	// 					"select" : "",
-	// 					"customer_name" : "Vaughan",
-	// 					"customer_image" : "build/img/profiles/avatar-21.jpg",
-	// 					"customer_no" : "Senior  Manager",
-	// 					"phone" : "+1 546555455",
-	// 					"email" : "vaughan12@example.com",
-	// 					"location" : "Canada",
-	// 					"created" : "29 Sep 2023, 08:20 am",
-	// 					"last_activity": "2 days ago",
-	// 					"status" : "0",
-	// 					"Action" : ""
-	// 				},
-	// 				{
-	// 					"id" : 4,
-	// 					"si_no" : "",
-	// 					"select" : "",
-	// 					"customer_name" : "Jessica",
-	// 					"customer_image" : "build/img/profiles/avatar-23.jpg",
-	// 					"customer_no" : "Test Engineer",
-	// 					"phone" : "+1 454478787",
-	// 					"email" : "jessica13@example.com",
-	// 					"location" : "India",
-	// 					"created" : "25 Sep 2023, 12:12 pm",
-	// 					"last_activity": "2 mins ago",
-	// 					"status" : "0",
-	// 					"Action" : ""
-	// 				},
-	// 				{
-	// 					"id" : 5,
-	// 					"si_no" : "",
-	// 					"select" : "",
-	// 					"customer_name" : "Carol Thomas",
-	// 					"customer_image" : "build/img/profiles/avatar-16.jpg",
-	// 					"customer_no" : "UI /UX Designer",
-	// 					"phone" : "+1 124547845",
-	// 					"email" : "caroltho3@example.com",
-	// 					"location" : "China",
-	// 					"created" : "02 Oct 2023, 10:10 am",
-	// 					"last_activity": "Online",
-	// 					"status" : "0",
-	// 					"Action" : ""
-	// 				},
-	// 				{
-	// 					"id" : 6,
-	// 					"si_no" : "",
-	// 					"select" : "",
-	// 					"customer_name" : "Dawn Mercha",
-	// 					"customer_image" : "build/img/profiles/avatar-22.jpg",
-	// 					"customer_no" : "Technician",
-	// 					"phone" : "+1 478845447",
-	// 					"email" : "dawnmercha@example.com",
-	// 					"location" : "Japan",
-	// 					"created" : "17 Oct 2023, 04:25 pm",
-	// 					"last_activity": "3 days ago",
-	// 					"status" : "0",
-	// 					"Action" : ""
-	// 				},
-	// 				{
-	// 					"id" : 7,
-	// 					"si_no" : "",
-	// 					"select" : "",
-	// 					"customer_name" : "Rachel Hampton",
-	// 					"customer_image" : "build/img/profiles/avatar-24.jpg",
-	// 					"customer_no" : "Software Developer",
-	// 					"phone" : "+1 215544845",
-	// 					"email" : "rachel@example.com",
-	// 					"location" : "Indonesia",
-	// 					"created" : "28 Oct 2023, 07:16 am",
-	// 					"last_activity": "10 days ago",
-	// 					"status" : "0",
-	// 					"Action" : ""
-	// 				},
-	// 				{
-	// 					"id" : 8,
-	// 					"si_no" : "",
-	// 					"select" : "",
-	// 					"customer_name" : "Jonelle Curtiss",
-	// 					"customer_image" : "build/img/profiles/avatar-25.jpg",
-	// 					"customer_no" : "Supervisor",
-	// 					"phone" : "+1 121145471",
-	// 					"email" : "jonelle@example.com",
-	// 					"location" : "Cuba",
-	// 					"created" : "08 Nov 2023, 06:10 am",
-	// 					"last_activity": "1 week go",
-	// 					"status" : "0",
-	// 					"Action" : ""
-	// 				},
-	// 				{
-	// 					"id" : 9,
-	// 					"si_no" : "",
-	// 					"select" : "",
-	// 					"customer_name" : "Jonathan",
-	// 					"customer_image" : "build/img/profiles/avatar-26.jpg",
-	// 					"customer_no" : "Team Lead Dev",
-	// 					"phone" : "+1 321454789",
-	// 					"email" : "jonathan@example.com",
-	// 					"location" : "Isreal",
-	// 					"created" : "15 Nov 2023, 11:50 am",
-	// 					"last_activity": "1 day ago",
-	// 					"status" : "0",
-	// 					"Action" : ""
-	// 				}
-	// 				,
-	// 				{
-	// 					"id" : 10,
-	// 					"si_no" : "",
-	// 					"select" : "",
-	// 					"customer_name" : "Brook",
-	// 					"customer_image" : "build/img/profiles/avatar-01.jpg",
-	// 					"customer_no" : "Team Lead Dev ",
-	// 					"phone" : "+1 278907145",
-	// 					"email" : "brook@example.com",
-	// 					"location" : "Colombia",
-	// 					"created" : "25 Nov 2023, 06:34 pm",
-	// 					"last_activity": "8 mins ago",
-	// 					"status" : "0",
-	// 					"Action" : ""
-	// 				}
-					
-	// 			],
-	// 		"columns": [
-	// 			{ "render": function ( data, type, row ){
-	// 				return '<label class="checkboxs"><input type="checkbox"><span class="checkmarks"></span></label>';
-	// 			}},
-	// 			{ "render": function ( data, type, row ){
-	// 				return '<div class="set-star rating-select"><i class="fa fa-star"></i></div>';
-	// 			}},
-	// 			{ "render": function ( data, type, row ){
-	// 				return '<h2 class="d-flex align-items-center"><a href="javascript:void(0);" class="avatar avatar-sm me-2"><img class="w-auto h-auto" src="'+row['customer_image']+'" alt="User Image"></a><a href="javascript:void(0);" class="d-flex flex-column">'+row['customer_name']+' <span class="text-default">'+row['customer_no']+' </span></a></h2>';
-	// 			}},
-	// 			{ "data": "phone" },
-	// 			{ "data": "email" },
-	// 			{ "data": "location" },
-	// 			{ "data": "created" },
-	// 			{ "data": "last_activity" },
-	// 			{ "render": function ( data, type, row ){
-	// 				if(row['status'] == "0") { var class_name = "bg-success";var status_name ="Active" } else { var class_name = "bg-danger";var status_name ="Inactive"}
-	// 				return '<span class="badge badge-pill badge-status '+class_name+'" >'+status_name+'</span>';
-	// 			}},
-	// 			{ "render": function ( data, type, row ){
-	// 				return '<div class="dropdown table-action"><a href="#" class="action-icon " data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a><div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_edit"><i class="ti ti-edit text-blue"></i> Edit</a><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_contact"><i class="ti ti-trash text-danger"></i> Delete</a></div></div>';
-	// 			}}
-	// 		]
-	// 	});
-	// }
+	
 
 	if($('#manage-users-list').length > 0) {
 		$('#manage-users-list').DataTable({
-			"bFilter": false, 
+			"bFilter": true, 
+		
+		
 				"bInfo": false,
-					"ordering": true,
+					"ordering": false,
 				"autoWidth": true,
 				"language": {
 					search: ' ',
@@ -5156,6 +4959,11 @@ $(document).ready(function () {
 					$('.dataTables_paginate').appendTo('.datatable-paginate');
 					$('.dataTables_length').appendTo('.datatable-length');
 				}, 
+				drawCallback: function(settings) {
+					const api = this.api();
+					const total = api.rows({ filter: 'applied' }).data().length;
+					$('#total-count').text(`${total}`);
+				},	
 				
 				"processing": true,
 				"serverSide": false, // If you want Laravel to handle pagination, sorting, and searching, set this to true
@@ -5166,7 +4974,15 @@ $(document).ready(function () {
 				},	
 
 				columns: [
-					{ data: 'id' },
+					// { data: 'id' },
+					{
+						data: null,
+						render: function (data, type, row, meta) {
+							return meta.row + 1; // Dynamic index (starting from 0 + 1)
+						}
+					},
+
+
 					{
 						data: null,
 						render: function (data, type, row) {
@@ -5202,15 +5018,7 @@ $(document).ready(function () {
 						}
 					},
 					{ data: 'role' },
-					// {
-					// 	data: null,
-					// 	orderable: false,
-					// 	searchable: false,
-					// 	className: 'text-end',
-					// 	render: function (data, type, row) {
-					// 		return `<a href="/users/edit/${row.id}" class="btn btn-sm btn-primary">Edit</a>`;
-					// 	}
-					// },
+					
 					{
 						"render": function (data, type, row) {
 							return `
@@ -5231,7 +5039,9 @@ $(document).ready(function () {
 											data-role="${row.role}">
 											<i class="ti ti-edit text-blue"></i> Edit
 										</a>
-										<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_contact">
+										<a class="dropdown-item delete-user-btn" href="#" data-bs-toggle="modal" data-bs-target="#delete_contact"
+										data-id="${row.id}" 
+										>
 											<i class="ti ti-trash text-danger"></i> Delete
 										</a>
 									</div>
@@ -5249,6 +5059,85 @@ $(document).ready(function () {
 	}else{
 		console.log("dfgkljdfgjfdgjkdfhgjkhdfgjkhdfkghdfkjgh")
 	}
+
+	
+	function exportToExcel() {
+		let table = document.getElementById("manage-users-list");
+		let rows = table.rows;
+		let data = [];
+	
+		// Loop through the rows and get the data, excluding the last column
+		for (let i = 0; i < rows.length; i++) {
+			let rowData = [];
+			let cols = rows[i].cells;
+	
+			for (let j = 0; j < cols.length - 1; j++) { // Exclude last column
+				rowData.push(cols[j].innerText.trim());
+			}
+	
+			data.push(rowData);
+		}
+	
+		// Convert the data to a CSV format
+		let csvContent = "";
+		data.forEach((rowArray, index) => {
+			let row = rowArray.join(",");
+			csvContent += index < data.length ? row + "\n" : row;
+		});
+	
+		// Trigger the file download
+		let hiddenElement = document.createElement('a');
+		hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csvContent);
+		hiddenElement.target = '_blank';
+		hiddenElement.download = 'users_data.csv';
+		hiddenElement.click();
+	}
+
+		async function exportTableToPDF() {
+			const { jsPDF } = window.jspdf;
+			const doc = new jsPDF();
+	
+			const table = document.getElementById("manage-users-list");
+			const rows = table.rows;
+	
+			let data = [];
+			let headers = [];
+	
+			// Extract headers (excluding last column)
+			let ths = rows[0].cells;
+			for (let i = 0; i < ths.length - 1; i++) {
+				headers.push(ths[i].innerText.trim());
+			}
+	
+			// Extract body data (excluding last column)
+			for (let i = 1; i < rows.length; i++) {
+				let rowData = [];
+				let tds = rows[i].cells;
+				for (let j = 0; j < tds.length - 1; j++) {
+					rowData.push(tds[j].innerText.trim());
+				}
+				data.push(rowData);
+			}
+	
+			// Add heading before table
+			doc.setFontSize(16);
+			doc.text("User List Report", 14, 20); // (text, x, y)
+	
+			// Add table below heading
+			doc.autoTable({
+				head: [headers],
+				body: data,
+				startY: 30, // start table after heading
+			});
+	
+			doc.save("users_data.pdf");
+   	 }
+	
+	// document.getElementById("exportButton").addEventListener("click", exportToExcel);
+	// document.getElementById("exportPDFButton").addEventListener("click", exportTableToPDF);
+
+	$("#exportButton").on("click", exportToExcel);
+	$("#exportPDFButton").on("click", exportTableToPDF);
 
 	// Delete Request
 
@@ -5404,6 +5293,136 @@ $(document).ready(function () {
 					}},
 				]
 			});
+	}
+
+
+
+	// phone user list
+
+	
+
+	
+	if($('#phone-users-list').length > 0) {
+		$('#phone-users-list').DataTable({
+			"bFilter": true, 
+				"bInfo": false,
+					"ordering": true,
+				"autoWidth": true,
+				"language": {
+					search: ' ',
+					sLengthMenu: '_MENU_',
+					searchPlaceholder: "Search",
+					info: "_START_ - _END_ of _TOTAL_ items",
+					"lengthMenu":     "Show _MENU_ entries",
+					paginate: {
+						next: 'Next <i class=" fa fa-angle-right"></i> ',
+						previous: '<i class="fa fa-angle-left"></i> Prev '
+					},
+					},
+				initComplete: (settings, json)=>{
+					$('.dataTables_paginate').appendTo('.datatable-paginate');
+					$('.dataTables_length').appendTo('.datatable-length');
+				}, 
+				drawCallback: function(settings) {
+					const api = this.api();
+					const total = api.rows({ filter: 'applied' }).data().length;
+					$('#total-count').text(`${total}`);
+				},	
+				
+				"processing": true,
+				"serverSide": false, // If you want Laravel to handle pagination, sorting, and searching, set this to true
+				ajax: {
+					// url: 'http://localhost:8000/users', // route that points to index() method
+					url:users_stats, // route that points to index() method
+					dataSrc: function (json) {
+						console.log('AJAX Response:', json); // 👈 Console log here
+						return json; // continue populating the table
+					}
+				},	
+
+				// return false;
+				columns: [
+					// { data: 'id' },
+					{
+						data: null,
+						render: function (data, type, row, meta) {
+							return meta.row + 1; // Dynamic index (starting from 0 + 1)
+						}
+					},
+
+
+					{
+						data: null,
+						render: function (data, type, row) {
+							// const isDefault = row.customer_image === 'http://localhost:8000/storage';
+							const isDefault = row.profile_image === userImageStorage;
+							const image = isDefault 
+								? defaultImage
+								: row.profile_image;
+			
+							return `
+								<div class="d-flex align-items-center">
+									<div class="avatar avatar-sm me-2">
+										<img src="${image}" alt="User Image" class="rounded-circle" width="40" height="40"
+											 onerror="this.src='${defaultImage}'">
+									</div>
+									<div>
+										<div class="fw-bold">${row.name}</div>
+									
+									</div>
+								</div>
+							`;
+						}
+					},
+					{ data: 'phone' },
+					{ data: 'email' },
+					{ data: 'total_count' },
+					
+					
+					{ data: 'pending_count' },
+					{ data: 'called_count' },
+					{ data: 'lead_count' },
+					{ data: 'deal_count' },
+					
+					// {
+					// 	"render": function (data, type, row) {
+					// 		return `
+					// 			<div class="dropdown table-action">
+					// 				<a href="#" class="action-icon" data-bs-toggle="dropdown" aria-expanded="false">
+					// 					<i class="fa fa-ellipsis-v"></i>
+					// 				</a>
+					// 				<div class="dropdown-menu dropdown-menu-right">
+					// 					<a class="dropdown-item edit-btn" href="javascript:void(0);" 
+					// 						data-bs-toggle="offcanvas" 
+					// 						data-bs-target="#offcanvas_edit" 
+					// 						data-id="${row.id}" 
+					// 						data-name="${row.customer_name}" 
+					// 						data-email="${row.email}" 
+					// 						data-phone="${row.phone}" 
+					// 						data-status="${row.status}" 
+					// 						 data-image="${row.customer_image}"
+					// 						data-role="${row.role}">
+					// 						<i class="ti ti-edit text-blue"></i> Edit
+					// 					</a>
+					// 					<a class="dropdown-item delete-user-btn" href="#" data-bs-toggle="modal" data-bs-target="#delete_contact"
+					// 					data-id="${row.id}" 
+					// 					>
+					// 						<i class="ti ti-trash text-danger"></i> Delete
+					// 					</a>
+					// 				</div>
+					// 			</div>`;
+					// 	}
+					// }
+
+				],		
+
+
+			
+		
+				
+		});
+	}else{
+		console.log("Asif");
 	}
 
 	// Roles

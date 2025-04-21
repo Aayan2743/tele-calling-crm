@@ -10,6 +10,7 @@
         "dipesh79/laravel-phonepe": "^1.0",
         "laravel/framework": "^12.1.1",
         "laravel/tinker": "^2.10.1",
+        "maatwebsite/excel": "^3.1",
         "razorpay/razorpay": "^2.9",
         "yajra/laravel-datatables-oracle": "^12.0"
     },

@@ -47,5 +47,9 @@ class User extends Authenticatable
             return $this->hasOne(Payment::class)->latestOfMany(); // if there can be multiple payments
         }
 
+        public function phoneNumbers()
+        {
+            return $this->hasMany(phonenumber::class, 'staff_id','id');
+        }
 
 }
