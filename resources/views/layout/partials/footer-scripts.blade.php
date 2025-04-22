@@ -66,6 +66,9 @@
     <script src="{{ URL::asset('build/js/upload_numbers.js') }}"></script>
 @endif
 
+
+
+
 @if (Route::is(['maps-vector']))
 <!-- JSVector Maps MapsJS -->
 <script src="{{ URL::asset('build/plugins/jsvectormap/js/jsvectormap.min.js') }}"></script>
@@ -443,6 +446,8 @@
      ]))
      <!-- Select2 JS -->
      <script src="{{ URL::asset('build/plugins/select2/js/select2.min.js') }}"></script>
+      <script src="{{ URL::asset('build/js/leads.js') }}"></script>
+
  @endif
 
  @if (Route::is(['form-select2']))

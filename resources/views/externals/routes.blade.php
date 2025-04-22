@@ -10,5 +10,12 @@
     const bulk_upload = "{{ route('bulk_upload') }}";
     const bulk_auto_upload = "{{ route('bulk_auto_upload') }}";
     const users_stats = "{{ route('user_stats') }}";
+    const add_lead = "{{ route('add_lead') }}";
+    const show_leads = "{{ route('show_leads') }}";
+    const update_lead = "{{ route('update_lead') }}";
+    var viewRoute = "{{ route('viewlead', ['id' => '__id__']) }}";
+
+ 
+   
     
 </script>

@@ -10,4 +10,12 @@ class Lead extends Model
     use HasFactory;
     protected $guarded = [];
 
+    public $timestamps=false;
+
+    
+public function staff()
+{
+    return $this->belongsTo(User::class, 'staff_id');
+}
+
 }

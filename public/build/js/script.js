@@ -586,31 +586,64 @@ $(document).ready(function(){
 
 	// Date Range Picker
 
-	if($('.bookingrange').length > 0) {
-		var start = moment().subtract(6, 'days');
-		var end = moment();
+	let startDate = null;
+let endDate = null;
 
-		function booking_range(start, end) {
-			$('.bookingrange span').html(start.format('M/D/YYYY') + ' - ' + end.format('M/D/YYYY'));
-		}
+if ($('.bookingrange1').length > 0) {
+	let start = moment().subtract(6, 'days');
+	let end = moment();
 
-		$('.bookingrange').daterangepicker({
-			startDate: start,
-			endDate: end,
-			ranges: {
-				'Today': [moment(), moment()],
-				'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-				'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-				'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-				'This Month': [moment().startOf('month'), moment().endOf('month')],
-				'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-			}
-		}, booking_range);
-
-		booking_range(start, end);
+	function booking_range(start, end) {
+		$('.bookingrange span').html(start.format('M/D/YYYY') + ' - ' + end.format('M/D/YYYY'));
+		startDate = start.startOf('day');
+		endDate = end.endOf('day');
+		console.log("Range selected:", start.format(), end.format()); 
+		$('#leads_list').DataTable().draw();
 	}
 
+	$('.bookingrange').daterangepicker({
+		startDate: start,
+		endDate: end,
+		ranges: {
+			'Today': [moment(), moment()],
+			'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+			'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+			'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+			'This Month': [moment().startOf('month'), moment().endOf('month')],
+			'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+		}
+	}, booking_range);
+
+	booking_range(start, end);
+
+	$.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
+		console.log("Custom filter running");
+		if (!startDate || !endDate) return true;
 	
+		let createdDateStr = data[9]; // index of "created_at" column
+	
+		console.log("Raw Created Date from table:", createdDateStr); // ✅ DEBUG
+	
+		// Use format that matches your server data
+		let createdDate = moment(createdDateStr, 'YYYY-MM-DD HH:mm:ss'); // or 'MM/DD/YYYY hh:mm A' if formatted
+	
+		if (!createdDate.isValid()) {
+			console.warn("Invalid date format:", createdDateStr); // ✅ DEBUG
+			return false;
+		}
+	
+		let isInRange = createdDate.isBetween(startDate, endDate, 'day', '[]');
+		console.log("Is in range:", isInRange); // ✅ DEBUG
+	
+		return isInRange;
+	});
+
+
+}
+
+
+
+
 
 	//toggle_btn
 	$(document).on('click', '#toggle_btn', function() {

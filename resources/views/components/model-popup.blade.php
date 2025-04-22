@@ -24873,174 +24873,195 @@
         </button>
     </div>
     <div class="offcanvas-body">
-        <form action="{{url('contacts')}}">	
+        <form id="LeadAdd">	
+            @csrf
             <div class="row">
                 <div class="col-md-12">
                     <div class="mb-3">
                         <label class="col-form-label">Lead Name <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="mb-3">
-                        <div class="radio-wrap">
-                            <label class="col-form-label">Lead Type</label>
-                            <div class="d-flex flex-wrap">
-                                <div class="me-2">
-                                    <input type="radio" class="status-radio" id="person" name="leave" checked>
-                                    <label for="person">Person</label>
-                                </div>
-                                <div>
-                                    <input type="radio" class="status-radio" id="Organization" name="leave">
-                                    <label for="Organization">Organization</label>
-                                </div>
-                            </div>
-                        </div>
+                        <input type="text" class="form-control" id="leadname" name="leadname" required>
+                         <span id="text-danger-leadname" class="text-danger pt-2"></span>
                     </div>
 
                 </div>
-                <div class="col-md-12">
-                    <div class="mb-3">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <label class="col-form-label">Company Name</label>
-                            <a href="" class="label-add " data-bs-toggle="offcanvas" data-bs-target="#offcanvas_add_2">
-                                <i class="ti ti-square-rounded-plus"></i>
-                                Add New
-                            </a>
-                        </div>
-                        <select class="select">
-                            <option>Choose</option>
-                            <option>NovaWave LLC</option>
-                            <option>Silver Hawk</option>
-                            <option>Summit Peak</option>
-                            <option>RiverStone Ventur</option>
-                            <option>Insurance</option>
-                        </select>
-                    </div>
-                </div>
+             
+             
                 <div class="col-md-6">
-                    <div class="mb-3">
-                        <label class="col-form-label">Value<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label class="col-form-label">Currency <span class="text-danger">*</span></label>
-                        <select class="select">
-                            <option>Select</option>
-                            <option>$</option>
-                            <option>€</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-8">
                     <div class="mb-3">
                         <label class="col-form-label">Phone<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" id="leadphone" name="leadphone" required>
+                        <span id="text-danger-leadphone" class="text-danger pt-2"></span>
                     </div>
                 </div>
-                <div class="col-md-4">
+
+                <div class="col-md-6">
                     <div class="mb-3">
-                        
-                        <select class="select2">
-                            <option>Choose</option>
-                            <option>Work</option>
-                            <option>Home</option>
-                        </select>
+                        <label class="col-form-label">Email<span class="text-danger"></span></label>
+                        <input type="email" class="form-control" id="email" name="email" >
+                        <span id="text-danger-leadphone" class="text-danger pt-2"></span>
                     </div>
                 </div>
+                
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label class="col-form-label">Source <span class="text-danger">*</span></label>
-                        <select class="select">
-                            <option>Choose</option>
-                            <option>Phone calls</option>
-                            <option>Social Media</option>
-                            <option>Referral sites</option>
-                            <option>Web Analytics</option>
-                            <option>Previous Purchase</option>
+                        <select class="form-select" id="leadsource" name="leadsource" required>
+                            <option value="">Choose</option>
+                            <option value="Phone calls">Phone calls</option>
+                            <option value="Social Media">Social Media</option>
+                            <option value="Referral sites">Referral sites</option>
+                            <option value="Web Analytics">Web Analytics</option>
+                            <option value="Previous Purchase">Previous Purchase</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label class="col-form-label">Industry <span class="text-danger">*</span></label>
-                        <select class="select">
-                            <option>Choose</option>
-                            <option>Retail Industry</option>
-                            <option>Banking</option>
-                            <option>Hotels</option>
-                            <option>Financial Services</option>
-                            <option>Insurance</option>
+                        <select class="form-select" id="leadindustry" name="leadindustry">
+                            <option value="">Choose</option>
+                            <option value="Retail Industry">Retail Industry</option>
+                            <option value="Real Estates">Real Estates</option>
+                            <option value="Banking">Banking</option>
+                            <option value="Hotels">Hotels</option>
+                            <option value="Financial Services">Financial Services</option>
+                            <option value="Insurance">Insurance</option>
                         </select>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="mb-3">
                         <label class="col-form-label">Owner</label>
-                        <select class="select-img">
-                            <option data-image="build/img/profiles/avatar-14.jpg" selected>Jerald</option>
-                            <option data-image="build/img/profiles/avatar-15.jpg">Guillory</option>
-                            <option data-image="build/img/profiles/avatar-16.jpg">Jami</option>
-                            <option data-image="build/img/profiles/avatar-13.jpg">Theresa</option>
-                            <option data-image="build/img/profiles/avatar-24.jpg">Espinosa</option>
-                        </select>
+                        <!-- <select class="select-img" id="staff" name="staff" required>
+                          
+                        </select> -->
+
+                        <select class="form-select" id="staff" name="staff" aria-label="Default select example">
+                            <!-- <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option> -->
+                            </select>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label class="col-form-label">Tags </label>
-                        <input class="input-tags form-control" type="text" data-role="tagsinput"  name="Label" value="Rated" >	
-                    </div>
-                </div>
+               
                 <div class="col-md-12">
                     <div class="mb-3">
                         <label class="col-form-label">Description <span class="text-danger">*</span></label>
-                        <textarea class="form-control" rows="5"></textarea>
+                        <textarea class="form-control" rows="5" id="description" name="description" required></textarea>
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="mb-3">
-                        <label class="col-form-label">Visibility</label>
-                        <div class="d-flex flex-wrap">
-                            <div class="me-2">
-                                <input type="radio" class="status-radio" id="public" name="visible">
-                                <label for="public">Public</label>
-                            </div>
-                            <div class="me-2">
-                                <input type="radio" class="status-radio" id="private" name="visible">
-                                <label for="private">Private</label>
-                            </div>
-                            <div data-bs-toggle="modal" data-bs-target="#access_view">
-                                <input type="radio" class="status-radio" id="people" name="visible">
-                                <label for="people">Select People</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-0">
-                        <label class="col-form-label">Status</label>
-                        <div class="d-flex flex-wrap">
-                            <div class="me-2">
-                                <input type="radio" class="status-radio" id="active" name="status" checked="">
-                                <label for="active">Active</label>
-                            </div>
-                            <div>
-                                <input type="radio" class="status-radio" id="inactive" name="status">
-                                <label for="inactive">Inactive</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
             <div class="d-flex align-items-center justify-content-end">
                 <button type="button" data-bs-dismiss="offcanvas" class="btn btn-light me-2">Cancel</button>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create_success">Create</button>
+                <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create_success">Create</button> -->
+                <button type="submit" class="btn btn-primary" >Create</button>
             </div>
         </form>
     </div>	
 </div>
-<!-- /Add Lead -->
+<!-- Add lead complate -->
+<!-- edit lead -->
+<div class="offcanvas offcanvas-end offcanvas-large" tabindex="-1" id="offcanvas_edit">
+    <div class="offcanvas-header border-bottom">
+        <h5 class="fw-semibold">Edit New Lead</h5>
+        <button type="button" class="btn-close custom-btn-close border p-1 me-0 d-flex align-items-center justify-content-center rounded-circle" data-bs-dismiss="offcanvas" aria-label="Close">
+            <i class="ti ti-x"></i>
+        </button>
+    </div>
+    <div class="offcanvas-body">
+        <form id="EditLead">	
+            @csrf
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mb-3">
+                        <label class="col-form-label">Lead Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="edit_name" name="edit_name" required>
+                        <input type="text" class="form-control" id="edit-id" name="edit_id" required>
+                         <span id="text-danger-edit_name" class="text-danger pt-2"></span>
+                    </div>
+
+                </div>
+             
+             
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="col-form-label">Phone<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="edit_number" name="edit_number" required>
+                        <span id="text-danger-edit_number" class="text-danger pt-2"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="col-form-label">Eamil<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="edit_email" name="edit_email" required>
+                        <span id="text-danger-edit_email" class="text-danger pt-2"></span>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="col-form-label">Source <span class="text-danger">*</span></label>
+                        <select class="form-select" id="edit_lead_source" name="edit_lead_source" required>
+                            <option value="">Choose</option>
+                            <option value="Phone calls">Phone calls</option>
+                            <option value="Social Media">Social Media</option>
+                            <option value="Referral sites">Referral sites</option>
+                            <option value="Web Analytics">Web Analytics</option>
+                            <option value="Previous Purchase">Previous Purchase</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="col-form-label">Industry <span class="text-danger">*</span></label>
+                        <select class="form-select" id="edit_lead_industry" name="edit_lead_industry">
+                            <option value="">Choose</option>
+                            <option value="Retail Industry">Retail Industry</option>
+                            <option value="Real Estates">Real Estates</option>
+                            <option value="Banking">Banking</option>
+                            <option value="Hotels">Hotels</option>
+                            <option value="Financial Services">Financial Services</option>
+                            <option value="Insurance">Insurance</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="mb-3">
+                        <label class="col-form-label">Owner</label>
+                        <!-- <select class="select-img" id="staff" name="staff" required>
+                          
+                        </select> -->
+
+                        <select class="form-select" id="editstaff" name="editstaff" aria-label="Default select example">
+                            <!-- <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option> -->
+                            </select>
+                    </div>
+                </div>
+               
+                <div class="col-md-12">
+                    <div class="mb-3">
+                        <label class="col-form-label">Description <span class="text-danger">*</span></label>
+                        <textarea class="form-control" rows="5" id="editdescription" name="editdescription" required></textarea>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="d-flex align-items-center justify-content-end">
+                <button type="button" data-bs-dismiss="offcanvas" class="btn btn-light me-2">Cancel</button>
+                <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#create_success">Create</button> -->
+                <button type="submit" class="btn btn-primary" >Create</button>
+            </div>
+        </form>
+    </div>	
+</div>
+
+<!-- Edit Lead -->
 
 <!-- Add Company -->
 <div class="offcanvas offcanvas-end offcanvas-large" tabindex="-1" id="offcanvas_add_2">

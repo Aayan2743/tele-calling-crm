@@ -166,7 +166,7 @@
                             <a class="{{ Request::is('contacts', 'contact-grid', 'contact-details') ? 'active' : '' }}"
                                 href="{{ url('contacts') }}"><i class="ti ti-user-up"></i><span>Contacts</span></a>
                         </li> --}}
-                        <li>
+                        <!-- <li>
                             <a class="{{ Request::is('companies', 'companies-grid', 'company-details') ? 'active' : '' }}"
                                 href="{{ url('companies') }}"><i
                                     class="ti ti-building-community"></i><span>Companies</span></a>
@@ -174,26 +174,26 @@
                         <li>
                             <a class="{{ Request::is('deals', 'deals-kanban', 'deals-details') ? 'active' : '' }}"
                                 href="{{ url('deals') }}"><i class="ti ti-medal"></i><span>Deals</span></a>
-                        </li>
+                        </li> -->
                         <li>
                             <a class="{{ Request::is('leads', 'leads-details', 'leads-kanban') ? 'active' : '' }}"
                                 href="{{ url('leads') }}"><i class="ti ti-chart-arcs"></i><span>Leads</span></a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a class="{{ Request::is('pipeline') ? 'active' : '' }}" href="{{ url('pipeline') }}"><i
                                     class="ti ti-timeline-event-exclamation"></i><span>Pipeline</span></a>
-                        </li>
+                        </li> -->
                         {{-- commented by karunakar for unrelated content --}}
                         {{-- <li>
                             <a class="{{ Request::is('campaign', 'campaign-complete', 'campaign-archieve') ? 'active' : '' }}"
                                 href="{{ url('campaign') }}"><i
                                     class="ti ti-brand-campaignmonitor"></i><span>Campaign</span></a>
                         </li> --}}
-                        <li>
+                        <!-- <li>
                             <a class="{{ Request::is('projects', 'project-details', 'project-grid') ? 'active' : '' }}"
                                 href="{{ url('projects') }}"><i class="ti ti-atom-2"></i><span>Projects</span></a>
-                        </li>
-                        <li>
+                        </li> -->
+                        <!-- <li>
                             <a class="{{ Request::is('followups', 'followups-completed', 'followups-important') ? 'active' : '' }}"
                                 href="{{ url('followups') }}"><i class="ti ti-list-check"></i><span>Followups</span></a>
                         </li>
@@ -201,22 +201,22 @@
                             <a class="{{ Request::is('proposals', 'proposals-grid') ? 'active' : '' }}"
                                 href="{{ url('proposals') }}">
                                 <i class="ti ti-file-star"></i><span>Proposals</span></a>
-                        </li>
-                        <li>
+                        </li> -->
+                        <!-- <li>
                             <a class="{{ Request::is('contracts', 'contracts-grid') ? 'active' : '' }}"
                                 href="{{ url('contracts') }}">
                                 <i class="ti ti-file-check"></i><span>Contracts</span></a>
-                        </li>
-                        <li>
+                        </li> -->
+                        <!-- <li>
                             <a class="{{ Request::is('estimations', 'estimations-kanban') ? 'active' : '' }}"
                                 href="{{ url('estimations') }}">
                                 <i class="ti ti-file-report"></i><span>Estimations</span></a>
-                        </li>
-                        <li>
+                        </li> -->
+                        <!-- <li>
                             <a class="{{ Request::is('invoices', 'invoice-grid') ? 'active' : '' }}"
                                 href="{{ url('invoices') }}">
                                 <i class="ti ti-file-invoice"></i><span>Invoices</span></a>
-                        </li>
+                        </li> -->
                         <li>
                             <a class="{{ Request::is('payments') ? 'active' : '' }}" href="{{ url('payments') }}">
                                 <i class="ti ti-report-money"></i><span>Payments</span></a>
@@ -227,14 +227,14 @@
                             <a class="{{ Request::is('analytics') ? 'active' : '' }}" href="{{ url('analytics') }}"><i
                                     class="ti ti-chart-bar"></i><span>Analytics</span></a>
                         </li> --}}
-                        <li>
+                        <!-- <li>
                             <a class="{{ Request::is('activities', 'activity-calls', 'activity-mail', 'activity-meeting', 'activity-task') ? 'active' : '' }}"
                                 href="{{ url('activities') }}"><i
                                     class="ti ti-bounce-right"></i><span>Activities</span></a>
-                        </li>
+                        </li> -->
                     </ul>
                 </li>
-                <li>
+                <!-- <li>
                     <h6 class="submenu-hdr">Reports</h6>
                     <ul>
                         <li class="submenu">
@@ -258,8 +258,8 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
-                <li>
+                </li> -->
+                <!-- <li>
                     <h6 class="submenu-hdr">CRM Settings</h6>
                     <ul>
                         <li><a class="{{ Request::is('sources') ? 'active' : '' }}" href="{{ url('sources') }}"><i
@@ -275,7 +275,7 @@
                         <li><a class="{{ Request::is('calls') ? 'active' : '' }}" href="{{ url('calls') }}"><i
                                     class="ti ti-phone-check"></i><span>Calls</span></a></li>
                     </ul>
-                </li>
+                </li> -->
                 <li>
                     <h6 class="submenu-hdr">User Management</h6>
                     <ul>
@@ -358,7 +358,7 @@
                                     class="ti ti-ticket"></i><span>Tickets</span></a></li>
                     </ul>
                 </li> --}}
-                <li>
+                <!-- <li>
                     <h6 class="submenu-hdr">Settings</h6>
                     <ul>
                         <li class="submenu">
@@ -459,8 +459,8 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
-                <li>
+                </li> -->
+                <!-- <li>
                     <h6 class="submenu-hdr">Pages</h6>
                     <ul>
                         <li class="submenu">
@@ -509,8 +509,8 @@
                                 href="{{ url('under-maintenance') }}"><i class="ti ti-moneybag"></i><span>Under
                                     Maintenance</span></a></li>
                     </ul>
-                </li>
-                <li>
+                </li> -->
+                <!-- <li>
                     <h6 class="submenu-hdr">UI Interface</h6>
                     <ul>
                         <li class="submenu">
@@ -785,7 +785,7 @@
                                 </ul>
                         </li>
                     </ul>
-                </li>
+                </li> -->
                 {{-- commented by karunakar for unrelated content --}}
                 {{-- <li>
                     <h6 class="submenu-hdr">Help</h6>

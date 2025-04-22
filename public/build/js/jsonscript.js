@@ -597,220 +597,189 @@ $(document).ready(function () {
 
 	// Leads List
 
-	if($('#leads_list').length > 0) {
-		$('#leads_list').DataTable({
-				"bFilter": false, 
-				"bInfo": false,
-					"ordering": true,
-				"autoWidth": true,"autoWidth": true,
-				"language": {
-					search: ' ',
-					sLengthMenu: '_MENU_',
-					searchPlaceholder: "Search",
-					info: "_START_ - _END_ of _TOTAL_ items",
-					"lengthMenu":     "Show _MENU_ entries",
-					paginate: {
-						next: 'Next <i class=" fa fa-angle-right"></i> ',
-						previous: '<i class="fa fa-angle-left"></i> Prev '
-					},
-					},
-				initComplete: (settings, json)=>{
-					$('.dataTables_paginate').appendTo('.datatable-paginate');
-					$('.dataTables_length').appendTo('.datatable-length');
-				},	
-				"data":[
-					{
-						"id" : 1,
-						"si_no" : "",
-						"select" : "",
-						"lead_name" : "Collins",
-						"company_name" : "NovaWave LLC",
-						"company_image" : "build/img/icons/company-icon-01.svg",
-						"company_address" : "Newyork, USA",
-						"phone" : "+1 875455453",
-						"email" : "robertson@example.com",
-						"created_date" : "25 Sep 2023, 01:22 pm",
-						"owner" : "Hendry",
-						"source" : "Paid Social",
-						"status" : "0",
-						"Action" : ""
-					},
-					{
-						"id" : 2,
-						"si_no" : "",
-						"select" : "",
-						"lead_name" : "Konopelski",
-						"company_name" : "BlueSky Industries",
-						"company_image" : "build/img/icons/company-icon-02.svg",
-						"company_address" : "Winchester, KY",
-						"phone" : "+1 989757485",
-						"email" : "sharon@example.com",
-						"created_date" : "29 Sep 2023, 04:15 pm",
-						"owner" : "Guillory",
-						"source" : "Referrals",
-						"status" : "2",
-						"Action" : ""
-					},
-					{
-						"id" : 3,
-						"si_no" : "",
-						"select" : "",
-						"lead_name" : "Adams",
-						"company_name" : "SilverHawk",
-						"company_image" : "build/img/icons/company-icon-03.svg",
-						"company_address" : "Jametown, NY",
-						"phone" : "+1 546555455",
-						"email" : "vaughan12@example.com",
-						"created_date" : "04 Oct 2023, 10:18 am",
-						"owner" : "Jami",
-						"source" : "Campaigns",
-						"status" : "0",
-						"Action" : ""
-					},
-					{
-						"id" : 4,
-						"si_no" : "",
-						"select" : "",
-						"lead_name" : "Schumm",
-						"company_name" : "SummitPeak",
-						"company_image" : "build/img/icons/company-icon-04.svg",
-						"company_address" : "Compton, RI",
-						"phone" : "+1 454478787",
-						"email" : "jessica13@example.com",
-						"created_date" : "17 Oct 2023, 03:31 pm",
-						"owner" : "Theresa",
-						"source" : "Google",
-						"status" : "3",
-						"Action" : ""
-					},
-					{
-						"id" : 5,
-						"si_no" : "",
-						"select" : "",
-						"lead_name" : "Wisozk",
-						"company_name" : "RiverStone Ventur",
-						"company_image" : "build/img/icons/company-icon-05.svg",
-						"company_address" : "Dayton, OH",
-						"phone" : "+1 124547845",
-						"email" : "caroltho3@example.com",
-						"created_date" : "24 Oct 2023, 09:14 pm",
-						"owner" : "Espinosa",
-						"source" : "Paid Social",
-						"status" : "0",
-						"Action" : ""
-					},
-					{
-						"id" : 6,
-						"si_no" : "",
-						"select" : "",
-						"lead_name" : "Heller",
-						"company_name" : "Bright Bridge Grp",
-						"company_image" : "build/img/icons/company-icon-06.svg",
-						"company_address" : "Lafayette, LA",
-						"phone" : "+1 478845447",
-						"email" : "dawnmercha@example.com",
-						"created_date" : "08 Nov 2023, 09:56 am",
-						"owner" : "Martin",
-						"source" : "Referrals",
-						"status" : "0",
-						"Action" : ""
-					},
-					{
-						"id" : 7,
-						"si_no" : "",
-						"select" : "",
-						"lead_name" : "Gutkowski",
-						"company_name" : "CoastalStar Co.",
-						"company_image" : "build/img/icons/company-icon-07.svg",
-						"company_address" : "Centerville, VA",
-						"phone" : "+1 215544845",
-						"email" : "rachel@example.com",
-						"created_date" : "14 Nov 2023, 04:19 pm",
-						"owner" : "Newell",
-						"source" : "Campaigns",
-						"status" : "0",
-						"Action" : ""
-					},
-					{
-						"id" : 8,
-						"si_no" : "",
-						"select" : "",
-						"lead_name" : "Walter",
-						"company_name" : "HarborView",
-						"company_image" : "build/img/icons/company-icon-08.svg",
-						"company_address" : "Providence, RI",
-						"phone" : "+1 121145471",
-						"email" : "jonelle@example.com",
-						"created_date" : "23 Nov 2023, 11:14 pm",
-						"owner" : "Janet",
-						"source" : "Google",
-						"status" : "0",
-						"Action" : ""
-					},
-					{
-						"id" : 9,
-						"si_no" : "",
-						"select" : "",
-						"lead_name" : "Hansen",
-						"company_name" : "Golden Gate Ltd",
-						"company_image" : "build/img/icons/company-icon-09.svg",
-						"company_address" : "Swayzee, IN",
-						"phone" : "+1 321454789",
-						"email" : "jonathan@example.com",
-						"created_date" : "10 Dec 2023, 06:43 am",
-						"owner" : "Craig",
-						"source" : "Paid Social",
-						"status" : "0",
-						"Action" : ""
-					},
-					{
-						"id" : 10,
-						"si_no" : "",
-						"select" : "",
-						"lead_name" : "Leuschke",
-						"company_name" : "Redwood Inc",
-						"company_image" : "build/img/icons/company-icon-10.svg",
-						"company_address" : "Florida City, FL",
-						"phone" : "+1 278907145",
-						"email" : "brook@example.com",
-						"created_date" : "25 Dec 2023, 08:17 pm",
-						"owner" : "Daniel",
-						"source" : "Referrals",
-						"status" : "1",
-						"Action" : ""
+	let startDate = null;
+	let endDate = null;
+	
+	if ($('#leads_list').length > 0) {
+		let table = $('#leads_list').DataTable({
+			bFilter: true,
+			bInfo: false,
+			ordering: true,
+			autoWidth: true,
+			language: {
+				search: ' ',
+				sLengthMenu: '_MENU_',
+				searchPlaceholder: "Search",
+				info: "_START_ - _END_ of _TOTAL_ items",
+				lengthMenu: "Show _MENU_ entries",
+				paginate: {
+					next: 'Next <i class=" fa fa-angle-right"></i>',
+					previous: '<i class="fa fa-angle-left"></i> Prev'
+				},
+			},
+			initComplete: function () {
+				$('.dataTables_paginate').appendTo('.datatable-paginate');
+				$('.dataTables_length').appendTo('.datatable-length');
+			},
+			ajax: {
+				url: show_leads,
+				dataSrc: function (json) {
+					console.log('AJAX Response:', json);
+					return json;
+				}
+			},
+			columns: [
+				{
+					data: null,
+					render: function (data, type, row, meta) {
+						return meta.row + 1;
 					}
-				],
-			"columns": [
-				{ "render": function ( data, type, row ){
-					return '<label class="checkboxs"><input type="checkbox"><span class="checkmarks"></span></label>';
-				}},
-				{ "render": function ( data, type, row ){
-					return '<div class="set-star rating-select"><i class="fa fa-star"></i></div>';
-				}},
-				{ "render": function ( data, type, row ){
-					return '<a href="leads-details" class="title-name">'+row['lead_name']+'</a>';
-				}},
-				{ "render": function ( data, type, row ){
-					return '<h2 class="d-flex align-items-center"><a href="company-details" class="avatar avatar-sm border rounded p-1 me-2"><img class="w-auto h-auto" src="'+row['company_image']+'" alt="User Image"></a><a href="company-details" class="d-flex flex-column">'+row['company_name']+'<span class="text-default">'+row['company_address']+' </span></a></h2>';
-				}},
-				{ "data": "phone" },
-				{ "data": "email" },
-				{ "render": function ( data, type, row ){
-					if(row['status'] == "0") { var class_name = "bg-success";var status_name ="Closed" } else if(row['status'] == "1") { var class_name = "bg-danger";var status_name ="Lost" } else if(row['status'] == "2") { var class_name = "bg-pending";var status_name ="Not Contacted"}
-					else { var class_name = "bg-warning";var status_name ="Contacted"}
-					return '<span class="badge badge-pill badge-status '+class_name+'" >'+status_name+'</span>';
-				}},
-				{ "data": "created_date" },
-				{ "render": function ( data, type, row ){
-					return '<span class="title-name">'+row['owner']+'</span>';
-				}},
-				{ "render": function ( data, type, row ){
-					return '<div class="dropdown table-action"><a href="#" class="action-icon " data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a><div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_edit" href="#"><i class="ti ti-edit text-blue"></i> Edit</a><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_lead"><i class="ti ti-trash text-danger"></i> Delete</a><a class="dropdown-item" href="#"><i class="ti ti-clipboard-copy text-blue-light"></i> Clone</a></div></div>';
-				}}
+				},
+				{ data: 'name' },
+				{ data: 'number' },
+				{
+					data: 'email',
+					render: function (data) {
+						return data ?? 'N/A';
+					}
+				},
+				{ data: 'lead_stage' },
+				{ data: 'lead_source' },
+				{ data: 'lead_industry' },
+				{
+					data: 'assigned_staff',
+					render: function (data) {
+						if (data) {
+							let imageUrl = data.image && data.image !== userImageStorage
+								? data.image
+								: defaultImage;
+							return `
+								<span data-staff="${data.id}">
+									<img src="${imageUrl}" alt="Staff Image" width="30" height="30" style="border-radius:50%; vertical-align:middle; margin-right:8px;">
+									${data.name}
+								</span>`;
+						}
+						return 'N/A';
+					}
+				},
+				{
+					data: 'assigned_staff',
+					render: function (data) {
+						if (data) {
+							return `${data.phone} <br><small>${data.email}</small>`;
+						}
+						return 'N/A';
+					}
+				},
+				{
+					data: 'created_at',
+					// render: function (data) {
+					// 	return moment(data).format('YYYY-MM-DD HH:mm:ss');
+					// }
+				},
+				{
+					// render: function (data, type, row) {
+					// 	return `
+					// 		<div class="dropdown table-action">
+					// 			<a href="#" class="action-icon" data-bs-toggle="dropdown" aria-expanded="false">
+					// 				<i class="fa fa-ellipsis-v"></i>
+					// 			</a>
+					// 			<div class="dropdown-menu dropdown-menu-right">
+					// 				<a class="dropdown-item edit-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_edit"
+					// 					data-id="${row.id}"
+					// 					data-name="${row.name}"
+					// 					data-number="${row.number}"
+					// 					data-lead_source="${row.lead_source}"
+					// 					data-lead_industry="${row.lead_industry}"
+					// 					data-email="${row.email}"
+					// 					data-staff="${row.assigned_staff?.id || ''}"
+					// 					data-description="${row.description}" href="#">
+					// 					<i class="ti ti-edit text-blue"></i> Edit
+					// 				</a>
+					// 				<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_lead">
+					// 					<i class="ti ti-trash text-danger"></i> Delete
+					// 				</a>
+					// 				<a class="dropdown-item" href="{{}}">
+					// 					<i class="ti ti-clipboard-copy text-blue-light"></i> View
+					// 				</a>
+					// 			</div>
+					// 		</div>`;
+					// }
+
+					render: function (data, type, row) {
+					
+						const viewRouteWithId = viewRoute.replace('__id__', row.id);
+						return `
+							<div class="dropdown table-action">
+								<a href="#" class="action-icon" data-bs-toggle="dropdown" aria-expanded="false">
+									<i class="fa fa-ellipsis-v"></i>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right">
+									<a class="dropdown-item edit-btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_edit"
+										data-id="${row.id}"
+										data-name="${row.name}"
+										data-number="${row.number}"
+										data-lead_source="${row.lead_source}"
+										data-lead_industry="${row.lead_industry}"
+										data-email="${row.email}"
+										data-staff="${row.assigned_staff?.id || ''}"
+										data-description="${row.description}" href="#">
+										<i class="ti ti-edit text-blue"></i> Edit
+									</a>
+									<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#delete_lead">
+										<i class="ti ti-trash text-danger"></i> Delete
+									</a>
+									<a class="dropdown-item" href="${viewRouteWithId}">
+										<i class="ti ti-clipboard-copy text-blue-light"></i> View
+									</a>
+								</div>
+							</div>`;
+					}
+					
+				}
 			]
 		});
+	
+		// Custom date range filter
+	
+	
+		// Listen for datepicker changes
+
 	}
+	
+
 		
+if ($('.bookingrange').length > 0) {
+	let start = moment().subtract(6, 'days');
+	let end = moment();
+
+	function booking_range(start, end) {
+		$('.bookingrange span').html(start.format('M/D/YYYY') + ' - ' + end.format('M/D/YYYY'));
+		startDate = start.startOf('day');
+		endDate = end.endOf('day');
+		console.log("Range selected dfsdfsdfsdfsd:", start.format(), end.format()); 
+		$('#leads_list').DataTable().draw();
+	}
+
+	$('.bookingrange').daterangepicker({
+		startDate: start,
+		endDate: end,
+		ranges: {
+			'Today': [moment(), moment()],
+			'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+			'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+			'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+			'This Month': [moment().startOf('month'), moment().endOf('month')],
+			'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+		}
+	}, booking_range);
+
+	booking_range(start, end);
+
+
+
+
+}
 	// Faq List
 
 	if($('#faqlist').length > 0) {
@@ -5061,8 +5030,8 @@ $(document).ready(function () {
 	}
 
 	
-	function exportToExcel() {
-		let table = document.getElementById("manage-users-list");
+	function exportToExcel(tableid) {
+		let table = document.getElementById(tableid);
 		let rows = table.rows;
 		let data = [];
 	
@@ -5093,11 +5062,16 @@ $(document).ready(function () {
 		hiddenElement.click();
 	}
 
-		async function exportTableToPDF() {
+		async function exportTableToPDF(tableid,txtname) {
 			const { jsPDF } = window.jspdf;
 			const doc = new jsPDF();
+
+			
 	
-			const table = document.getElementById("manage-users-list");
+			// const table = document.getElementById("manage-users-list");
+			const table = document.getElementById(tableid);
+
+			console.log(table);
 			const rows = table.rows;
 	
 			let data = [];
@@ -5121,7 +5095,8 @@ $(document).ready(function () {
 	
 			// Add heading before table
 			doc.setFontSize(16);
-			doc.text("User List Report", 14, 20); // (text, x, y)
+			// doc.text("User List Report", 14, 20); // (text, x, y)
+			doc.text(txtname, 14, 20); // (text, x, y)
 	
 			// Add table below heading
 			doc.autoTable({
@@ -5131,13 +5106,32 @@ $(document).ready(function () {
 			});
 	
 			doc.save("users_data.pdf");
-   	 }
+  		 }
 	
-	// document.getElementById("exportButton").addEventListener("click", exportToExcel);
-	// document.getElementById("exportPDFButton").addEventListener("click", exportTableToPDF);
 
-	$("#exportButton").on("click", exportToExcel);
-	$("#exportPDFButton").on("click", exportTableToPDF);
+	$("#exportButton").on("click", function () {
+		exportToExcel('manage-users-list');
+	});
+
+	$("#export_leads_as_excel").on("click", function () {
+		exportToExcel('leads_list');
+	});
+	
+
+	$("#exportPDFButton").on("click", function () {
+		exportTableToPDF('manage-users-list', 'User List Report Asif');
+	});
+
+	$("#export_leads_as_pdf").on("click", function () {
+		exportTableToPDF('leads_list', 'Leads List Report');
+	});
+	
+	
+
+	//
+
+	
+
 
 	// Delete Request
 

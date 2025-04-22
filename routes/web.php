@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminRegisterController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PhonePeController;
 use App\Http\Controllers\RozarpayController;
+use App\Http\Controllers\leadController;
 
 // Route::get('deals-dashboard', [CustomAuthController::class, 'deals-dashboard']); 
 // Route::get('index', [CustomAuthController::class, 'index'])->name('index');
@@ -96,6 +97,24 @@ Route::post('/add_phone_number', [UserController::class, 'add_phone_number'])->n
 Route::post('/bulk_upload', [UserController::class, 'bulk_upload'])->name('bulk_upload');
 Route::post('/bulk_auto_upload', [UserController::class, 'bulk_auto_upload'])->name('bulk_auto_upload');
 Route::get('/users_statistics', [UserController::class, 'user_stats'])->name('user_stats');
+Route::post('/add_lead', [leadController::class, 'add_lead'])->name('add_lead');
+Route::get('/show_leads', [leadController::class, 'show_leads'])->name('show_leads');
+Route::post('/update_lead', [leadController::class, 'update_lead'])->name('update_lead');
+Route::get('/view_leads/{id}', [leadController::class, 'viewlead'])->name('viewlead');
+
+// payments
+
+Route::get('/view_leads/{id}', [leadController::class, 'viewlead'])->name('viewlead');
+
+
+// view leads
+Route::get('/leads-details', function () {
+    return view('leads-details');
+})->name('leads-details'); 
+
+Route::get('/leads-dashboard', function () {
+    return view('leads-dashboard');
+})->name('leads-dashboard'); 
    
 });
 
@@ -479,17 +498,17 @@ Route::get('/lead-reports', function () {
     return view('lead-reports');
 })->name('lead-reports'); 
 
-Route::get('/leads-dashboard', function () {
-    return view('leads-dashboard');
-})->name('leads-dashboard'); 
+// Route::get('/leads-dashboard', function () {
+//     return view('leads-dashboard');
+// })->name('leads-dashboard'); 
 
 Route::get('/leads-kanban', function () {
     return view('leads-kanban');
 })->name('leads-kanban'); 
 
-Route::get('/leads-details', function () {
-    return view('leads-details');
-})->name('leads-details'); 
+// Route::get('/leads-details', function () {
+//     return view('leads-details');
+// })->name('leads-details'); 
 
 Route::get('/localization', function () {
     return view('localization');

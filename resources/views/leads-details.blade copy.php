@@ -53,16 +53,16 @@
                             <div class="d-flex align-items-center justify-content-between flex-wrap">
                                 <div class="d-flex align-items-center mb-2">
                                     <div class="avatar avatar-xxl me-3 flex-shrink-0 border p-2">		
-                                        <h6 class="text-default fw-medium">{{ $firstLetter }}</h6>
+                                        <h6 class="text-default fw-medium">HT</h6>
                                     </div>
                                     <div>
-                                        <h5 class="mb-1">{{ $lead->name ?? 'N/A' }} <span class="star-icon"><i class="fa-solid fa-star"></i></span></h5>
-                                        <p class="mb-1"><i class="ti ti-building me-1"></i>{{ $lead->number ?? 'N/A' }}</p>
-                                        <p class="mb-0"><i class="ti ti-map-pin-pin me-1"></i>{{ $lead->email ?? 'N/A' }}</p>
+                                        <h5 class="mb-1">Tremblay and Rath <span class="star-icon"><i class="fa-solid fa-star"></i></span></h5>
+                                        <p class="mb-1"><i class="ti ti-building me-1"></i>Google Inc</p>
+                                        <p class="mb-0"><i class="ti ti-map-pin-pin me-1"></i>22, Ave Street, Newyork, USA</p>
                                     </div>
                                 </div>
                                 <div class="contacts-action">
-                                    <!-- <span class="badge badge-light"><i class="ti ti-lock"></i>Private</span> -->
+                                    <span class="badge badge-light"><i class="ti ti-lock"></i>Private</span>
                                     <div class="dropdown mb-2">
                                         <a href="#" class="bg-success text-white py-1 px-2" data-bs-toggle="dropdown" aria-expanded="false">
                                             Closed<i class="ti ti-chevron-down ms-2"></i>
@@ -86,34 +86,27 @@
                         <div class="card-body p-3">
                             <h6 class="mb-3 fw-semibold">Lead  Information</h6>
                             <ul>
-                                <li class="row mb-3"><span class="col-6">Date Created</span><span class="col-6">{{ \Carbon\Carbon::parse($lead->created_at)->format('d M Y, h:i a') }}</span></li>
-                            
-                              
+                                <li class="row mb-3"><span class="col-6">Date Created</span><span class="col-6">10 Jan 2024, 10:00 am</span></li>
+                                <li class="row mb-3"><span class="col-6">Value</span><span class="col-6">$25,11,145</span></li>
+                                <li class="row mb-3"><span class="col-6">Due Date</span><span class="col-6">20 Jan 2024, 10:00 am</span></li>
                                 <li class="row mb-3"><span class="col-6">Follow Up</span><span class="col-6">20 Jan 2024</span></li>
-                                <li class="row mb-3"><span class="col-6">Source</span><span class="col-6">{{ $lead->lead_source ?? 'N/A'  }}</span></li>
+                                <li class="row mb-3"><span class="col-6">Source</span><span class="col-6">Google</span></li>
                             </ul>	
                             <h6 class="mb-3 fw-semibold">Owner</h6>
                             <div class="d-flex align-items-center mb-3">
                                 <div class="avatar avatar-md me-2">
-
-                                @if($lead->staff->profile_image==null)
-                                
-                                 <img src="{{ asset('storage/default.jpg') }}" alt="Default Image">
-                                @else
-                                    <img src="{{URL::asset($lead->staff->profile_image)}}" alt="Image">
-                                @endif
-                                    <!-- <img src="{{URL::asset('/build/img/profiles/avatar-21.jpg')}}" alt="Image"> -->
-                                  
+                                    <img src="{{URL::asset('/build/img/profiles/avatar-21.jpg')}}" alt="Image">
                                 </div>
-                                <p>{{ $lead->staff->name }}</p>
+                                <p>Vaughan</p>
                             </div>									
-                           						
-                            
+                            <hr>							
+                            <h6 class="mb-3 fw-semibold">Tags</h6>
+                            <a href="javascript:void(0);" class="badge badge-soft-success fw-medium me-2">Collab</a>
+                            <a href="javascript:void(0);" class="badge badge-soft-warning fw-medium">Rated</a>
                             <hr>					
-                            <h6 class="mb-3 fw-semibold">Description</h6>
-                            <!-- <a href="javascript:void(0);" class="badge bg-light-300 text-default me-2 mb-2">{{$lead->description  }}</a> -->
-                            <span class=" text-default me-2 mb-2">{{$lead->description  }}</span>
-                           
+                            <h6 class="mb-3 fw-semibold">Projects</h6>
+                            <a href="javascript:void(0);" class="badge bg-light-300 text-default me-2 mb-2">Devops Design</a>
+                            <a href="javascript:void(0);" class="badge bg-light-300 text-default mb-2">Margrate Design</a>
                             <hr>
                             <h6 class="mb-3 fw-semibold">Priority</h6>
                             <div class="priority-info">
@@ -121,35 +114,31 @@
                                     <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><span><i class="ti ti-square-rounded-filled me-1 text-danger circle"></i>High</span><i class="ti ti-chevron-down me-1"></i></a>
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <a class="dropdown-item" href="javascript:void(0);">
-                                            <span><i class="ti ti-square-rounded-filled me-1 text-danger circle"></i>Hot</span>
+                                            <span><i class="ti ti-square-rounded-filled me-1 text-danger circle"></i>High</span>
                                         </a>
                                         <a class="dropdown-item" href="javascript:void(0);">
-                                            <span><i class="ti ti-square-rounded-filled me-1 text-success circle"></i>Warm</span>
-                                        </a>
-                                        <a class="dropdown-item" href="javascript:void(0);">
-                                            <span><i class="ti ti-square-rounded-filled me-1 text-success circle"></i>Cold</span>
+                                            <span><i class="ti ti-square-rounded-filled me-1 text-success circle"></i>Low</span>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <HR>
-                           
-                           
-                            		
+                            <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                <h6 class="mb-3 fw-semibold">Contacts</h6>
+                                <a href="javascript:void(0);" class="link-purple mb-3 fw-medium" data-bs-toggle="modal" data-bs-target="#add_contact"><i class="ti ti-circle-plus me-1"></i>Add New</a>
+                            </div>	
+                            <div class="d-flex align-items-center mb-0">
+                                <div class="avatar avatar-md me-2">
+                                    <img src="{{URL::asset('/build/img/profiles/avatar-01.jpg')}}" alt="Image">
+                                </div>
+                                <p>Jessica</p>
+                            </div>
+                            <hr>						
                             <ul>
                                 <li class="row mb-3"><span class="col-6">Last Modified</span><span class="col-6">10 Jan 2024, 10:00 am</span></li>
                                 <li class="row mb-0"><span class="col-6">Modified By</span>
                                     <span class="col-6">
-
-                                    @if($lead->staff->profile_image==null)
-                                
-                                            <!-- <img src="{{ asset('storage/default.jpg') }}" alt="Default Image"> -->
-                                            <span class="avatar avatar-xs me-1"><img src="{{ asset('storage/default.jpg') }}" class="avatar-xs" alt="img"></span> {{ $lead->staff->name }}
-                                        @else
-                                        <span class="avatar avatar-xs me-1"><img src="{{URL::asset($lead->staff->profile_image)}}" class="avatar-xs" alt="img"></span>{{ $lead->staff->name }}
-                                            <!-- <img src="{{URL::asset($lead->staff->profile_image)}}" alt="Image"> -->
-                                        @endif
-                                        <!-- <span class="avatar avatar-xs me-1"><img src="{{URL::asset('/build/img/profiles/avatar-19.jpg')}}" class="avatar-xs" alt="img"></span>Darlee Robertson -->
+                                        <span class="avatar avatar-xs me-1"><img src="{{URL::asset('/build/img/profiles/avatar-19.jpg')}}" class="avatar-xs" alt="img"></span>Darlee Robertson
                                     </span>
                                 </li>
                             </ul>	
@@ -174,20 +163,20 @@
                             </div>
                             <ul class="nav nav-tabs nav-tabs-bottom" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <a href="#" data-bs-toggle="tab" data-bs-target="#activities" class="nav-link active"><i class="ti ti-alarm-minus me-1"></i>Followups</a>
+                                    <a href="#" data-bs-toggle="tab" data-bs-target="#activities" class="nav-link active"><i class="ti ti-alarm-minus me-1"></i>Activities</a>
                                 </li>
-                                <!-- <li class="nav-item" role="presentation">
+                                <li class="nav-item" role="presentation">
                                     <a href="#" data-bs-toggle="tab" data-bs-target="#notes" class="nav-link"><i class="ti ti-notes me-1"></i>Notes</a>
-                                </li> -->
+                                </li>
                                 <li class="nav-item" role="presentation">
                                     <a href="#" data-bs-toggle="tab" data-bs-target="#calls" class="nav-link"><i class="ti ti-phone me-1"></i>Calls</a>
                                 </li>
-                                <!-- <li class="nav-item" role="presentation">
+                                <li class="nav-item" role="presentation">
                                     <a href="#" data-bs-toggle="tab" data-bs-target="#files" class="nav-link"><i class="ti ti-file me-1"></i>Files</a>
-                                </li> -->
-                                <!-- <li class="nav-item" role="presentation">
+                                </li>
+                                <li class="nav-item" role="presentation">
                                     <a href="#" data-bs-toggle="tab" data-bs-target="#email" class="nav-link"><i class="ti ti-mail-check me-1"></i>Email</a>
-                                </li> -->
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -199,18 +188,16 @@
                         <div  class="tab-pane active show" id="activities">
                             <div class="card">
                                 <div class="card-header d-flex align-items-center justify-content-between flex-wrap row-gap-3">
-                                    <h4 class="fw-semibold">Followups</h4>
-                                 
+                                    <h4 class="fw-semibold">Activities</h4>
                                     <div>
-                                      
-                                        <!-- <div class="form-sort">
+                                        <div class="form-sort">
                                             <i class="ti ti-sort-ascending-2"></i>
                                             <select class="select">
                                                 <option>Sort By Date</option>
                                                 <option>Ascending</option>
                                                 <option>Descending</option>
                                             </select>
-                                        </div> -->
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="card-body">
